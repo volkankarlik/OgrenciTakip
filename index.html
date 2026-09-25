@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIlZvbGthbiBIb2NhIMOWxJ9yZW5jaSBUYWtpcCBTaXN0ZW1pIiwgInNob3J0X25hbWUiOiAiw5bEn3JlbmNpIFRha2lwIiwgInN0YXJ0X3VybCI6ICIuIiwgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNGQUY3RUYiLCAidGhlbWVfY29sb3IiOiAiIzIwMzI0QSIsICJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQU1BQUFBREFDQVlBQUFCUzNHd0hBQUFLSzBsRVFWUjRuTzNkWDFBVjF4MEg4TzhGUkNWWU1ScGpZclZZWTZXVkNZcVNoRCthU1lLQzJGWnRva0FmT21hbTdVTm40blNhUE5YcHRKMU8rcEkrcFoxTXB5OTVpNUNRc2FRR1JCU2pBaUtnK0FmL0VGRlFsQkJRQ0lxQUlOdytwRnBoTDlkN3o5bDc3OW45ZlQ5dkh1N1pQY244dm50Mjc1N2Q2MEVFSktibWVTT3hYekpmKzhreVR6ajNGNWFkc2VCSlZhZ0RFYktOcytqSmJxRUlnNjBiWk5GVHVOZ1ZoaWc3TmdLdytDbTg3S28zN1JTeDhDblNkR1lEclJtQXhVOG0wS2xEcGVTdzhNbFV3YzRHUWM4QUxINHlXYkQxR1ZRQVdQemtCTUhVYWNBQllQR1Rrd1JhcndFRmdNVlBUaFJJM1Q0MkFDeCtjckxIMWEvZkFMRDR5UTM4MWJGdGQ0S0puR2pLQVBEb1QyNHlWVDM3REFDTG45eklWMTN6RkloRXN3U0FSMzl5czhuMUhlWHZqMFJ1OUdpZDh4U0lSR01BU0xTSEFlRHBEMG55b040NUE1Qm9EQUNKNWdGNCtrTnljUVlnMFJnQUVvMEJJTkdpZVA1UGtuRUdJTkVZQUJLTkFTRFJHQUFTalFFZzBSZ0FFbzBCSU5FWUFCS05BU0RSR0FBU2pRRWcwUmdBRW8wQklORVlBQktOQVNEUkdBQVNqUUVnMFJnQUVvMEJJTkVZQUJLTkFTRFJHQUFTalFFZzBSZ0FFbzBCSU5FWUFCS05BU0RSR0FBU2pRRWcwUmdBRW8wQklORVlBQktOQVNEUkdBQVNqUUVnMFJnQUVvMEJJTkZpd3Jtelg3NitIci85eFUvQ3NxL083bDVzK05XZmJOblc0bWVlUXRrLy82QzluZnkzLzRaenJkZVFscndNSDc3N2xnMGpDMDVqY3l0MjdIcmY3MmVhUy8zL1BWU1NOKytNeUg0NUE1Qm9EQUNKeGdDUWFBd0FpZVpKVE0zelJub1FINzc3RnRLU2x5bjMvK3UvU3ZEUjUwZHNIRkhndHVWazRJKy9LWmpRTnU3MVl1T3YvNHdiM2IxSzIvem92YmZ4L0ErK3A5VDN6VjEvUjBQekphVytqL1BPbTF1d1k4dXJTbjAvS0NySEI3dkxiUjZSUGlObWdLS3lhcTMrK1J1emJCcUp5cjdYV3RxcVQ1eFhMbjRLTHlNQ2NLRHVOSHI2Yml2M1g3cG9BZFlrUDJmamlBS3pNbWtKa3BZc3RMUVhsUjBOKzFoSWpSRUJHQnNiUjhuK1dxMXRGRVJnRmlqSXN4NzlyM2ZkUXZYSkMyRWZDNmt4SWdBQThFbEZEY2JHeHBYN1o2ZW5ZRzdDTEJ0SDVOK2MyZkhJeVZ4bGFTL2VWNDF4YjhRdnF5aEF4Z1NnKzFZL3FvNmZVZTRmRXgyTjE5ZW4yemdpLzk1WW40NXBNZEVUMnU2TmpHTFBnYnF3allIMEdSTUFBQ2dxMTdzWTNwYVRpYWlvMFA4blJYazgySmFUYVdtdnFHbkNOM2Z1aG56L1pCK2pBbkQ4ekpkb3UvNjFjdjlubnBxRGw5ZXNzSEZFdnExYnN3TFB6bi9TMHI3N2MxNzhPbzFSQVFEMFo0RndmQ1ZhdU1sNjhYditjZ2ZPWHJvYThuMlR2WXdMUUdsVlBZYUdSNVQ3WjY1S3dxSUY4MndjMFVTTEZzeER4c29rUy90dWZ2WHBTTVlGWUdCd0NIc1BOeXIzOTNnODJKNXJQVCszUy83R0xIZzhuZ2x0dHdjR1VYYmtSTWoyU2FGalhBQUFvS2hjNzJpNk5mc2xUSStkWnROby9tOTY3RFJzelg3SjByN240SEhjR3htMWZYOFVla1lHb0tYdEJrNWRiRlB1bnpEckNXeklYR25mZ1A0bmIrMXF6STZQbTlEbTlYcFJySG5kUXBGalpBQUEvZVVFQlQ3VzZPZ3F5TE5lWUI4NzFZSnJYL1hZdmk4S0QyTURVRkhUaEw3K0FlWCtLY3NUZmE3VFVaVzhiREZXUExmWTBxNTd1a2FSWld3QVJ1K1BvYVR5bU5ZMmZLM1VWRldZdDg3UzlsVlBINzVvT0dmYlBpajhqQTBBOE8zNklKMTFOVDkrZVEzaTQyWm9qMk4yZkJ4eXM2enJmajZ1cU1INHVQcjZKWW84b3dQUTJkMkxJNDNxUjlpWk0yTHgwMWRlMEI3SDF2WFdiNVZHNzQvaDAvMTZNeFJGbnRFQkFQUXZoblh2REhzOEh1VG5XcmV4djdZSnZmMTN0TFpOa1dkOEFHcWFMcUtqNjZaeWY5MkhaYkpTZitqenpyTHVVMnhraHJDK0dFdUYxK3RGOGI1cXZMTmppL0kyQ2pldVJXTnpxMUpmWHcvYWZObmVpYVlMVjVUSEUwcVJlT0dXa3hrL0F3REFuc282clR1dHI2VS9yL1N3ekxQem44UmFINnRMK2NpamV6Z2lBUDBEZ3lnL2VsSzVmMHgwTk43WWtCRjB2L3pjTEVSTld2Y3pNRGlFL3h4dVVCNExtY1VSQVFEMFYxdHV5OGtJNm1HWjJHa3grSm1QZFQrbFZRMWFxMVhKTEk0SndMbldhempYZWsyNS80SjV3VDBzc3lGekZlYk1qcmUwRi9QT3I2c1lmeEg4cUtLeWF2eGw1OCtWK3hma1plRlEvZG1BUGx2bzQrSzMvdXdsWE5GNFlpMGNUSDB4bHFrY013TUFRTm5SRStnZkdGVHVuN0V5c0lkbGtwWXNSRXJTRWtzN0gzcHhIMGNGUVBldEMxUGQxSnFzY0pOMTNVOTNyOTViSzhoTWpnb0FBQlNYVjhPcnNUNW9TL2FMZmgrV2lZK2JpVTNyVmx2YVN5cHF0ZDViUkdaeVhBQTZ1bTZpOXRSRjVmNEpzNTd3K1VLckI3YTg5aUptVEkrZDBHYkhtK3ZJVEk0TEFCRGFsK242dXZON29PNDB1bnY3dGZaSlpuSmtBQTQzTktOVDQrM0xVejBzazU2eUhJa0w1MXZhdWU3SHZSd1pnSEd2RjU5VTFHaHR3OWVMYlgyMVhlN29DdG5YaWhSNWpnd0FBSlJVSHNQby9USGwvcHZXclVGODNNeUgvMzU2YmdKZWVTSFo4amsrOE81dWpnMUFYLzhBOXRjMktmZWZPU01XbTE5TmUvanY3Ym5XOTRvT0R0L0RaNGZxbGZkQjVuTnNBQUE3TG9hL1BlV1o2czNTZTc5b3dNRGdzTlkreUd5T1dnb3hXZE9GSzJocHU0SGxpbTkvK1A1M24wWmE4akxNVFppRmVYTytZL243Ymw3OHVwNmpad0JBLzdVa0JSdXpmTDdzOXNUNXk3aDB0Vk5yMjJRK3h3ZGc3K0ZHREF3T0tmZlBUay9CNmg4dHRiVHpvUmNaSEIrQW9lRVJsRmFwUDZBU0hXMzlYM0RybXp1b3JEMnRNeXh5Q01jSEFMRC83V3lmVmg3RC9USDFyMWpKT1Z3UmdMYnJYNlArckQwM3E4Ykh4L0h4UHIyYmJPUWNyZ2dBWU45YS9VUDF6ZWk2MldmTHRzaDhyZ2xBMWZFejZMNmx2MkJOOXllYXlGbGNFd0E3bGl4ZjdleEIzZWtXbTBaRVR1Q2FBQUQ2UDdaZFZINVU2MkViY2g1WEJhQ243ellPS2o2Mk9IeHZCUDgrZU56bUVaSHBYQlVBUVAyM2VzdU9uTUNkdStvMzFNaVpQSW1wZWE2Yjgwdi84WHNzWGJRZ3FEN2JmL2NlemwvdUNOR0lKa3BMWGhhUmQzZzJOcmRpeDY3My9YNm11ZFQvMzBNbGVmUE9pT3pYZFRNQUVQd2EvdE10N1dFcmZqS0xLd1B3MmFGNkRBN2ZDL2p6L0owdnVWd1pnSUhCNFlCL2JMdnY5bDFVVktzL1dFUE81c29BQUlGZkRPODVjQXdqby9kRFBCb3lsU3N2Z29rQzVkb1pnQ2dRREFDSnhnQ1FhQXdBaWNZQWtHZ01BSW5HQUpCb0RBQ0p4Z0NRYUF3QWljWUFrR2dNQUluR0FKQm9EQUNKeGdDUWFBd0FpY1lBa0dnTUFJbkdBSkJvREFDSnhnQ1FhQXdBaWNZQWtHZ01BSW5HQUpCb0RBQ0p4Z0NRYUF3QWljWUFrR2dNQUluR0FKQm9EQUNKeGdDUWFBd0FpY1lBa0dnTUFJbkdBSkJvREFDSkZ0Vitzc3dUNlVFUVJRcG5BQktOQVNEUkdBQVNMUW9BZUIxQUVyV2ZMUE53QmlEUkdBQVM3V0VBZUJwRWtqeW9kODRBSkJvRFFLSk5DQUJQZzBpQ1IrdmNNZ013Qk9SbWsrdWJwMEFrbXM4QWNCWWdOL0pWMTFQT0FBd0J1Y2xVOWN4VElCTE5id0E0QzVBYitLdmp4ODRBREFFNTJlUHFONkJUSUlhQW5DaVF1ZzM0R29BaElDY0p0RjZEdWdobUNNZ0pncW5Ub0w4RllnaklaTUhXcDFZeEo2Ym1lWFg2RTlsRjljQ3NkUitBc3dHWlFLY09iU3RnemdZVWJuWWNnRzI3RTh6WmdNTEpybm9MV2RGeVJpQzdoZUlnRzVhak5zTkFxa0o5WnZGZk9tdmhRRXJLQmZjQUFBQUFTVVZPUks1Q1lJST0iLCAic2l6ZXMiOiAiMTkyeDE5MiIsICJ0eXBlIjogImltYWdlL3BuZyJ9LCB7InNyYyI6ICJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQWdBQUFBSUFDQVlBQUFEMGVOVDZBQUFkK0VsRVFWUjRuTzNkV2JCVjliM2c4ZDlobEVFUlVSd1RwMkFjaWFLZ2dDWUtDbXB5cjhZSVdQM1FsYmZibFI0ZXVwKzZxMjlWOXgzcVZsZmxvVy9sNWFaUzFVbFYzMXVsb0lZTUlwTmdrSGxTVUhCQUZDU2dvcUFJTXA5eitzSEdxOGl3enpwcjcvOWErLy81UE1hc3MzOTdsOG4vdS85cjdiVTZndEpjTmViaDd0UXpBTFM3YmV2bmRLU2VvUjM0RUh2SUlnOVFYZUtnY1Q2b003RFlBOVNmS0RnMUg4cFhXUEFCMnA4ZytFTDJINEpGSHlCZk9jZEFsbS9jb2cvQXlYS0xnYXplcklVZmdMUEpKUVRhL2sxYTlBRW9xcDFqb0czZm1JVWZnTEswWXdpMDNSdXk4QVBRTE8wVUFtM3pSaXo4QUxSS080UkE3ZCtBaFIrQVZPb2NBclVkM01JUFFGWFVNUVQ2cEI2Z0NJcy9BRlZTeDNXcFZzVlN4dzhZZ0x6VVpUZWdGa05hK0FHb202cUhRT1ZQQVZqOEFhaWpxcTlmbFE2QXFuOTRBSEFtVlY3SEtyazlVZVVQREFDS3FOb3BnY3J0QUZqOEFXaEhWVnZmS2hVQVZmdHdBS0JNVlZybktyRWRVYVVQQkFCYUlmVXBnZVE3QUJaL0FIS1VldjFMR2dDcDN6d0FwSlJ5SFV3V0FCWi9BRWkzSGlZSkFJcy9BUHlyRk90aXl3UEE0ZzhBMzlUcTliR2xBV0R4QjREVGErVTYyYklBc1BnRHdObTFhcjFzU1FCWS9BR2djYTFZTjVzZUFCWi9BT2k1WnErZlRRMEFpejhBRk5mTWRiUnBBV0R4QjREZWE5WjYycFFBc1BnRFFIbWFzYTRtZnhZQUFOQjZwUWVBYi84QVVMNnkxOWRTQThEaUR3RE5VK1k2VzFvQVdQd0JvUG5LV205ZEF3QUFHU29sQUh6N0I0RFdLV1BkN1hVQVdQd0JvUFY2dS83MktnQXMvZ0NRVG0vV1lkY0FBRUNHQ2dlQWIvOEFrRjdSOWRnT0FBQmtxRkFBK1BZUEFOVlJaRjN1Y1FCWS9BR2dlbnE2UGpzRkFBQVo2bEVBK1BZUEFOWFZrM1hhRGdBQVpLamhBUER0SHdDcXI5SDEyZzRBQUdTb29RRHc3UjhBNnFPUmRkc09BQUJrNkt3QjROcy9BTlRQMmRadk93QUFrS0V6Qm9Cdi93QlFYMmRheCswQUFFQ0dCQUFBWk9pMEFXRDdId0RxNzNUcnVSMEFBTWpRS1FQQXQzOEFhQituV3RmdEFBQkFoZ1FBQUdUb0d3RmcreDhBMnMvSjY3c2RBQURJa0FBQWdBeDlMUUJzL3dOQSsvcnFPbThIQUFBeUpBQUFJRU1DQUFBeTlHVUFPUDhQQU8zdnhIcHZCd0FBTWlRQUFDQkRBZ0FBTWlRQUFDQkRIUkV1QUFTQTNOZ0JBSUFNQ1FBQXlKQUFBSUFNQ1FBQXlKQUFBSUFNQ1FBQXlGQWZQd0VFZ1B6WUFRQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEQWtBQU1pUUFBQ0FEUFZMUFVCVmpmL2VkK05YZi9QdlU0OVJlZi8ydi83dldMLzVuZFJqbE9JM2YvK2Y0bzZidjVONmpCN2I4Y0hIOGRCZi9jMXAvL25TZi82SE9QL2NJUzJjcUwwc1dic3BmdmEzdnl6OTczNzcwb3RpemovOWRlbC9OeWUvK0pmbjRwY3o1NlVlbzdic0FBQkFoZ1FBQUdSSUFBQkFoZ1FBQUdSSUFBQkFoZ1FBQUdSSUFBQkFoZ1FBQUdSSUFBQkFoZ1FBQUdSSUFBQkFoZ1FBQUdTbzQ2b3hEM2VuSHFMZGpMMTVWUHo2Ny85ajZqRWFOdU8vL0R3MnZmMWU2akhheHZoYnI0OWYvYytmRlRyMlYwOHZpSC84djM4b2VhSnl6Zi9WLzRqTFJsNlFlb3pUK3Mzc1JmSHpYODlPUFViTFhUajh2SGp4TjMrWGVvd3orcy8vNi8vRS9PV3ZwQjZELzg4T1FCT3NlVzFMYk4zeFFlb3hHamJqd1ltcFIyZ3JUengwZDZIanVycTc0K2w1eTBxZUJ1RFVCRUNUekp5N05QVUlEWHY0KzdmSDBNR0RVby9SRmthT0dCYjNqcjI1MExGTDEyMk9uYnYzbGp3UndLa0pnQ2I1M2FJMWNmakkwZFJqTk9TY2dRUGlrVWxqVTQvUkZoNmZNaUg2OWkzMlA2c25uNjlQTkFMMUp3Q2E1TURCUS9IY2tuV3B4MmpZdEtsT0EvUlczNzU5NHZFcEV3b2R1MnYzM2xpNmJuUEpFd0djbmdCb29xZHE5STN1TzkrK05HNi84ZHJVWTlUYWZlTnVpWkVYREN0MDdLeDV5NktyMi9XNFFPc0lnQ2JhdkhWSHZMcGxlK294R2phajRNVnJmS0hvNTNmc2VHYzhzMkJseWRNQW5Ka0FhTEk2N1FJOE1PSFdHRDVzYU9veGF1bkt5eTZLdTBaZlYralloU3MyeE41OSswdWVDT0RNQkVDVFBmL1Mrdmpzd01IVVl6U2tmNysrOGVQSmQ2VWVvNVptUEhSM2RIUjBGRHIycWVkZktua2FnTE1UQUUxMjVPaXhtTDFvVmVveEdqWjk2c1RDQzFtdUJnN29INDlPdXJQUXNWdDNmQkJyTjIwdGVTS0FzeE1BTFREeitXWFJYWk1Mdks2NFpFUk11UFg2MUdQVXlrUDNqSW56aGc0dWRHeWRUaEVCN1VVQXRNQzJYYnRqMWNZdHFjZG8ySFIzQnV5Um9oZi9IVHA4Tkg2L2VIWEowd0EwUmdDMHlGTTF1alBnZmVOdWpwRWppdjJjTFRjM1h2dXR1R1hVbFlXTy9lT2Yxc2FCZzRkTG5naWdNUUtnUlJhdDJoaTc5KzVMUFVaRCt2UXBma09iM1BUbXA1TjF1bDAwMEg0RVFJdDBkbmJGTXd0V3BCNmpZYjI1cFcwdWhnNGVGQS9mYzN1aFl6ZTh1UzFlZitmUEpVOEUwRGovRDk5Q3MrWXRpNjZ1cnRSak5HVGtCY1VmYXBPTFJ5YU5pMEhuRENoMHJJdi9nTlFFUUF2dDNyTXZGcTkrTGZVWURadnhvRHNEbmtuUjdmOTlCdzdHdkdVdmx6d05RTThJZ0JhcjA4V0E0Mi85Ym56cmtndFRqMUZKWTI4ZUZkZGNjWEdoWTMrN2NHVWNPWHFzNUlrQWVrWUF0TmlLVjk2TTk5Ny9LUFVZRGVubzZQQ1R3Tk40b3VDMy8rN3U3cGcxYjFuSjB3RDBuQUJvc2U3dTdwZzV0ejRMd0tPVDc0b0IvZnVsSHFOU1JweC9ia3dlUDdyUXNTczN2Qm5iZDlVakFJSDJKZ0FTcU5NVzhQRHpoc1NVQ2JlbUhxTlNmdkxBK09qWHQyK2hZNTkwOFI5UUVRSWdnYnBkQkRiZHhZQmY2dFBSRWRPbUZqc3RzbnZQdm5oeFRYMHVBZ1hhbXdCSXBFNC9BeHR6NHpVeDZzcExVNDlSQ2QrLzQ2YTQ5S0xoaFk1OWV2N3k2T3lzeDg5QWdmWW5BQkxaOE9hMmVPUGRuYW5IYUpoZGdDODg4ZkE5aFk3cjdPeUtwK2N2TDNrYWdPSUVRRUoxZWc3OFg5dzd0dkJOYjlyRkZaZU1pSW0zRlh0U1lwMXVCUTNrUVFBa1ZLZUh3UXdkZkU3aDI5NjJpK2xUSjBaSFIwZWhZK3QwL3djZ0R3SWdvVU9IajhZZlhseVRlb3lHOWViQk4zVTNvSCsvK1BIa3V3b2RXN2ZIUVFONUVBQ0oxZWxpd0J1di9WYmNQT3JicWNkSVlzcUVXMlA0c0tHRmpwMzUvTExvN3U0dWVTS0EzaEVBaWIzOTN2dXhidlBXMUdNMExOZGRnS0x2KzhqUll6RjcwYXFTcHdIb1BRRlFBWFhhQlhqbzdqRng3cEJCcWNkb3FWRlhYaGEzM1hCTm9XT2ZmMmw5ZkhiZ1lNa1RBZlNlQUtpQUJjdGZpYjM3OXFjZW95SG5EQndRZjNuZnVOUmp0RlRSKy81SDFDdnVnTHdJZ0FvNGRyd3pubDI0TXZVWURjdnBOTUNRUVFQalIvZU9MWFRzNXEwNzR0VXQyMHVlQ0tBY0FxQWlaczFkRmwwMXVWRHNtaXN1amp0dS9rN3FNVnJpUi9lT2pTR0RCaFk2MXJkL29Nb0VRRVhzM0wwM2xxNS9QZlVZRFp1UnlaMEJpNzdQQXdjUHhaeVgxcFU4RFVCNUJFQ0YxT2tiNC8zanZ4Y1hERHMzOVJoTmRkc04xOFIxVjExVzZOamZMVm9UaHc0ZkxYa2lnUElJZ0FwNWFlMm0yTFY3YitveEd0Sy9YOTk0N1A1aU44YXBpOTVjNnpEVG5mK0FpaE1BRmRMVjNSMnphdlRBbUdsVEowU2ZncmZHcmJyaDV3MkpLUk51TFhUc210ZTJ4TllkSDVRN0VFREpCRURGUEROL1JSdzczcGw2aklaY2Z2R0ltRGptaHRSak5NV1A3eDhmQS9yM0szVHNrelU2bFFQa1N3QlV6TjU5KzJQaGlnMnB4MmpZOUFjbnBoNmhkQjBkSFRGOWFySDN0ZWZUL2ZIQ2lvMGxUd1JRUGdGUVFYVjZUUEFQN3JncExybHdlT294U25YM21Cdmlpa3RHRkRyMm1RVXI0bmhuUFhad2dMd0pnQXBhdTJscnZQM2UrNm5IYUVpZlBuM2k4U25qVTQ5UnFxSVgvM1YxZDhlc2VjdEtuZ2FnT1FSQVJjMmNXNStGNUxFSHhrZmZ2dTN4cjlLbEZ3MlA3OTkrWTZGamw2emRGTzkvOUVuSkV3RTBSM3Y4djNZYit2M2kxYlg1SGZuSUM0YkZwRHRIcHg2akZOT21Ub3crZllyOXo2Sk85M0VBRUFBVmRlRGc0WGh1eWRyVVl6U3NIUzRHN05lMytMME5kbjY0SjViVjZFNk9BQUtnd3VyMGpmS3UwZGZGbFpkZGxIcU1YcGs4Zm5SY09QeThRc2ZPbkZlZlp6a0FSQWlBU252OW5UL0h4cmZxOFRTNWpvNk9tRmJ3cDNOVlVmU3h2M1Y3bWlOQWhBQ292RHI5SlBEUnlYY1d2bmxPYXRkY2NYR012WGxVb1dQbkwzODVQdGwzb09TSkFKcExBRlRjM0tVdng3NERCMU9QMFpEenp4MFNVeWJlbG5xTVFtWThkRS9oWSt0MHFnYmdCQUZRY1VlT0hvdlpMNnhLUFViRGltNmpwM1RPd0FIeHlLU3hoWTdkc24xWHJOLzhUc2tUQVRTZkFLaUJtWE9YUm5kTkxqQzc5ZnFyWTlTVnhSNmhtOG9QdjM5N0RCMDhxTkN4N3ZzUDFKVUFxSUh0dXo2S2xSdmZTajFHdzJiVTdDZUJSZS84ZC9Ed2tmamppMnRLbmdhZ05RUkFUZFRwUFBOZjNEY3VCcDh6TVBVWURibGwxSlZ4NDdYZktuVHNIMTljRTU4Zk9sTHlSQUN0SVFCcVl2SHFWMlAzbm4ycHgyaklrRUVENDRjL3VEMzFHQTBwK3UwL3d2WS9VRy8xL00xV2hqbzd1K0xwQmN2alowODhsSHFVaGt4LzhPNllOVzk1NmpITzZMeWhnK09oZThZVU92YVZOOTZOdDdidEtua2l5dkRUUnlmRlR4K2RsSG9NcUR3N0FEWHk5UHpsMGRuWmxYcU1odHh3elJVeCtyb3JVNDl4UmorZWZHY01ITkMvMExHKy9RTjFKd0JxWlBlZWZiRjQ5YXVweDJqWTlBZXIrNVBBam82T21GYndZc1ZQOTM4ZTg1ZTlYUEpFQUswbEFHcW1UaGNEUG5UUG1EaHY2T0RVWTV6U1hhT3ZpNnN1RzFubzJOOHVYQmxIangwdmVTS0ExaElBTmJOeTQxdXhmZGRIcWNkb3lNQUIvZU9SU2VOU2ozRktSUy8rNis3dWpwbHpsNVU4RFVEckNZQ2ErV0lCcXM4dXdQUUtQaUJvNUFYRDRyNXh0eFE2ZHZrcmI4U09EejR1ZVNLQTFoTUFOVFQ3aFZWeDVPaXgxR00wNU9vckxvNXh0eFI3eUU2elBENWxRdlR0Vyt4Zi9UcWRnZ0U0RXdGUVEvc09ISXk1Uyt0ekVkcU1DbDBNMktkUG4zaDh5b1JDeDM3dzhTZng0cHBOSlU4RWtJWUFxS2s2UFNaNDh2alJNZUw4YzFPUEVSRVI5NDI3T1VhT0dGYm8yRm56bGtkWFZ6MStoZ2x3TmdLZ3BqYSt0VDFlZitmUHFjZG9TTCsrZmVPeEI4YW5IaU1pSXA1NHVOaGpmNDkzZHNhekMxYVVQQTFBT2dLZ3h1cDBQdnJ4S1JPaVQwZEgwaG11dk95aXVHdjBkWVdPZldIbHh2am9rODlLbmdnZ0hRRlFZODh0V1JzSERoNU9QVVpETGg5NVFkdzk1b2FrTTB4LzhPN29LQmdoZFlvdGdFWUlnQm83ZFBoby9IN3g2dFJqTkt3M0Q5N3ByWUVEK3NlamsrOHNkT3kybmJ0ajlhdGJTcDRJSUMwQlVITjErbVo2engwM3hhVVhEVS95MmcvZWZWc01LM2hYUXZmOUI5cVJwd0hXM05ZZEg4VGFUVnZqanB1dVRUM0tXZlhwNklqSHAweUlYL3pMY3kxLzdSa1BGYnY0NzhqUlkvRzdSYXRLbm9abStzM3NSZkh6WDg5T1BVYkxYVGo4dkhqeE4zK1hlZ3hxeEE1QUc2alRUd0ovOHNENDZOZTNiMHRmc3pkUEpweXpaRjNzLy94UXlSTUJwQ2NBMnNEQ0ZSdGk3Nzc5cWNkb3lJWER6NHRKZHhhN0RXOVJ2Ym4yd1BZLzBLNEVRQnM0ZHJ3em5sbXdNdlVZRFd2bHhZQkRCdytLSDM3L2prTEhibnI3dmRqMDluc2xUd1JRRFFLZ1RjeWF0eXk2dXJ0VGo5R1FjYmVNS3Z3bzNwNTZaTkxZR0hUT2dFTEgrdllQdERNQjBDWjI3ZDRiUzlkdFRqMUdRem82T21MYWc2MTVTdUQwZ3M4aDJQLzVvWml6WkYzSjB3QlVod0JvSTAvT3FjL0ZnSTlPdmpNR0R1amYxTmU0NCtidnhMWGZ1cVRRc1hWNjRpSkFFUUtnalN4ZC8zcnMzTDAzOVJnTkdUWjBjRXlkZUZ0VFgrT0pYbHhyOE5SYzIvOUFleE1BYmFTcnV6dG16VjJXZW95R3pXamlhWUFSNTU4Yjk0Ly9YcUZqVjIxOEs3YnQzRjN5UkFEVklnRGF6TE1MVjhheDQ1MnB4MmpJOTY2L09yNTc5ZVZOK2R1UDllSitBM1c2dXlKQVVRS2d6ZXpkdHo4V0xIOGw5UmdOYThZdVFKK09qcGcyWlVLaFl6LzY1TE5ZdE9yVmtpY0NxQjRCMElicTlBMzJoejhZRzBNR0RTejFiMzcvanB2aXNwRVhGRHIybWZuTDQzaG5QWFpRQUhwREFMU2hkWnUzeHBidDc2Y2VveUZEQmcyTUgvNWdiS2wvcytpTmhycTZ1dUxwK1N0S25RV2dxZ1JBbTVwWm82dll5endOY1BuRkkyTGltQnNLSGZ2aW1rM3h3Y2VmbERZTFFKVUpnRGIxaHhmWHhNSERSMUtQMFpEdlhuMTVmTys3VjVYeXQ2WlBuUmg5T2pvS0hWdW5VeWNBdlNVQTJ0U0JnNGZqdVQvVjUwNTJaVHdmb0grL3Z2SFkvWGNWT25iSEJ4L0g4bGZlNlBVTUFIVWhBTnBZblI0VFBIWGliVEZzNk9CZS9ZMHBFMjZMNGNPR0ZqcDI1dHhsMFYyVFp5a0FsRUVBdExFMzN0MFpHOTdjbG5xTWhnd2MwRDhlblh4bnIvNUcwVjJFbzhlT3gyOFgxdWRwaWdCbEVBQnRyazdudFh2emdLQlJWMTRXWTI2OHB0Q3g4NWErSEovdS83endhd1BVa1FCb2MvT1cxV2R4dStxeWtYSG42T3NLSGR1YisvNC9XYU5mVEFDVVJRQzB1U05IajhYc0YxYWxIcU5oUmJieEI1OHpNSDUwYjdGN0NiejU3czdZOE1hN2hZNEZxRE1Ca0lFNlhlQTI2YzViNHNMaDUvWG9tQi9kVy94dWduVTZSUUpRSmdHUWdmZmUveWhXYm5nejlSZ042ZGUzNXovbEs3cjkvL21oSS9ISFA2MHRkQ3hBM1FtQVREeFpvMis2MDNwd001OWJyNzg2cnJ2cXNrS3Y4NGZGcTJ0enN5U0FzZ21BVEN4ZS9WcDh1T2ZUMUdNMDVOS0xoc2M5ZDl6VTBIKzNOeGYvUFRWM1dlRmpBZXBPQUdTaXE2c3JucDYzUFBVWURXdmsrUUREenhzU1V5YmVWdWp2cjkvOFRtelp2cXZRc1FEdFFBQms1SmtGSzZLenN5djFHQTI1Ky9ZYnovcEkzeC9mUHo0RzlPOVg2Tys3K0EvSW5RREl5TzY5KzJMUnFvMnB4MmhJbjQ2T21EWmx3bW4vZVVkSFIweWZXdXpHUVovc094RHpsNzljZERTQXRpQUFNdk5Valc1Njg5Z0Q0Nk5mMzc2bi9HY1RiN3MrcnJoa1JLRy8rK3pDbFhIc2VHZHZSZ09vUFFHUW1WVWJ0OFMyWGJ0VGo5R1FFZWVmRzVQSGp6N2xQeXQ2My8rdTd1NllPYy9GZndBQ0lEUGQzZDB4OC9uNkxJQXpIdnptUW4vSmhjUGpCdzMrU3VCa1M5ZS9IanMvM05QYnNRQnFUd0JrYVBhaVZYSGs2TEhVWXpSazNDMmo0cXJMUjM3dFA1czJkVUwwNlZQc1gxMFgvd0Y4UVFCazZMTURCK1A1bDlhbkhxTmhYOTBGNk5lM2IvemtnZkdGL3M3N0gzMFNMNjNkVk5aWUFMVW1BREpWcDIvQ2owd2FGd01IOUkrSWlNbDNqZTd4c3dKT21EbHZXWFRWNUprSUFNMG1BREwxNnBidHNYbnJqdFJqTk9TOG9ZUGpvWHZHUkVURUV3OFh1L2p2ZUdkblBMdGdSWmxqQWRTYUFNaFluWFlCcGo5NGQxeDl4Y1V4OXVaUmhZNWZ1R0pEN1BsMGY4bFRBZFNYQU1qWWMwdld4WUdEaDFLUDBaRFIxMTBaLy8ydnBoVSt2azRQUXdKb0JRR1FzY05IanNidkZxMUpQVWJEN2h4OVhhSGozdm56aDdIMnRiZExuZ2FnM2dSQTVwNTYvcVhVSXpSZER1OFJvS2NFUU9iYS9kdHgzWFk1QUZwRkFORFc1OGZyZEowRFFDc0pBTnI2Q3ZrNi9kSUJvSlVFQUhHOHN6T2VhY1BmeUc5OHF6NzNPZ0JvTlFGQVJFVE1hc083NUxuNEQrRDBCQUFSOGNWOThwZTAwWDN5OXgwNEdIT1h2cHg2RElES0VnQjhxWjNPbDg5K29UNVBQQVJJUVFEd3BXWHJYNCtkSCs1SlBVYXZkWGQzeDZ5NXkxS1BBVkJwQW9BdmRYVjN4OHg1OVY4NFYyNThLN2J0MnAxNkRJQktFd0I4emJNTFY4YXg0NTJweCtpVmRqcVZBZEFzQW9DditXVGZnWmkvdkw0WHorM2V1eThXcjM0MTlSZ0FsU2NBK0lZNmY0Titldjd5Nk96c1NqMEdRT1VKQUw1aC9lWjNZc3YyOTFPUDBXTmRYVjN4OVB6bHFjY0FxQVVCd0NrOU5iZCt1d0NMVjc4V3UvZnNTejBHUUMwSUFFN3BENHRYeDhIRFIxS1AwU05Qem5IblA0QkdDUUJPNmZORFIrS1BmMXFiZW95R2JkLzFVYXpjK0ZicU1RQnFRd0J3V25XNkdIRG0zS1hSM1diUE1nQm9KZ0hBYWIzNTdzN1k4TWE3cWNjNHF5TkhqOFhzRjFhbEhnT2dWZ1FBWi9Sa0RTNEduTHYwNWRoMzRHRHFNUUJxUlFCd1J2T1d2aHlmN3Y4ODlSaG41TEcvQUQwbkFEaWpvOGVPeCt5RjFkMWVmLzJkUDhmR3Q3YW5IZ09nZGdRQVovVlVoUyt3cTlPRmlnQlZJZ0E0cXgwZmZCekxYM2tqOVJqZmNPRGc0WGh1U1gxK3FnaFFKUUtBaGxUeG0vYnZGNitPUTRlUHBoNERvSllFQUExNWNjMm0rSERQcDZuSCtKcVpjNWVsSGdHZ3RqcXVHdk53TlUvdVVqbi9ic2FEOFIvK3pjT3B4NGlJaUxXYnRzWlAvOXMvcGg2akZwYis4ei9FK2VjT1NUMUdiUzFadXlsKzlyZS9MUDN2ZnZ2U2kyTE9QLzExNlg4M0o3LzRsK2ZpbHpQbnBSNmp0dXdBMExCbkt2U29YZmY5QitnZEFVRERQdnJrczNoaDFjYlVZOFRlZmZ2amhaVWJVbzhCVUdzQ2dCNnB3c1dBejh4ZkVjZU9kNlllQTZEV0JBQTlzbXJqVzdGdDUrNWtyOS9WM1IyejVpOVA5dm9BN1VJQTBHTlBKWHcrd0V0ck44V3UzWHVUdlQ1QXV4QUE5TmpzRjFiRmthUEhrcngyRlU1QkFMUURBVUNQN2YvOFVNeDVhVjNMWDNmbjdyMnhkUDNyTFg5ZGdIWWtBQ2dreFRmeFdYT1hSVmRGbjBrQVVEY0NnRUplMi9KZWJONjZvMld2ZCt4NFp6eTdjR1hMWGcrZzNRa0FDbnV5aGJzQUM1YS9FbnYzN1cvWjZ3RzBPd0ZBWVhPV3JJdjlueDlxeVd1NStBK2dYQUtBd2c0Zk9ScS9YN3k2NmEvejludnZ4N3JOVzV2K09nQTU4VEFnQU1pUUhRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5SkFBQUlBTUNRQUF5RkNmYmV2bmRLUWVBZ0JvTFRzQUFKQWhBUUFBR1JJQUFKQWhBUUFBR1JJQUFKQWhBUUFBR2VvVEVlR25nQUNRajIzcjUzVFlBUUNBREFrQUFNaVFBQUNBREFrQUFNalFsd0hnUWtBQWFIOG4xbnM3QUFDUUlRRUFBQmtTQUFDUW9hOEZnT3NBQUtCOWZYV2R0d01BQUJrU0FBQ1FvVzhFZ05NQUFOQitUbDdmN1FBQVFJWUVBQUJrNkpRQjREUUFBTFNQVTYzcmRnQUFJRU9uRFFDN0FBQlFmNmRieiswQUFFQ0dCQUFBWk9pTUFlQTBBQURVMTVuV2NUc0FBSkNoc3dhQVhRQUFxSit6cmQ5MkFBQWdRdzBGZ0YwQUFLaVBSdFp0T3dBQWtLR0dBOEF1QUFCVVg2UHJ0UjBBQU1oUWp3TEFMZ0FBVkZkUDFtazdBQUNRb1I0SGdGMEFBS2llbnE3UGhYWUFSQUFBVkVlUmRka3BBQURJVU9FQXNBc0FBT2tWWFkvdEFBQkFobm9WQUhZQkFDQ2QzcXpEdmQ0QkVBRUEwSHE5WFg5TE9RVWdBZ0NnZGNwWWQxMERBQUFaS2kwQTdBSUFRUE9WdGQ2V3VnTWdBZ0NnZWNwY1owcy9CU0FDQUtCOFphK3ZyZ0VBZ0F3MUpRRHNBZ0JBZVpxeHJqWnRCMEFFQUVEdk5XczliZW9wQUJFQUFNVTFjeDF0K2pVQUlnQUFlcTdaNjJkTExnSVVBUURRdUZhc215MzdGWUFJQUlDemE5VjYyZEtmQVlvQUFEaTlWcTZUTGI4UGdBZ0FnRzlxOWZxWTVFWkFJZ0FBL2xXS2RUSFpuUUJGQUFDa1d3K1QzZ3BZQkFDUXM1VHJZUEpuQVlnQUFIS1VldjJyMU9KNzFaaUh1MVBQQUFETmxIcmhQeUg1RHNCWFZlVkRBWUJtcU5JNlY2a0FpS2pXaHdNQVphbmErbGFwWVU3bWxBQUFkVmUxaGYrRXl1MEFmRlZWUHpRQWFFU1YxN0ZLQjBCRXRUODhBRGlkcXE5ZmxSN3VaRTRKQUZCMVZWLzRUNmpGa0NjVEFnQlVUVjBXL2hNcWZ3cmdWT3IySVFQUTN1cTRMdFZ1NEpQWkRRQWdsVG91L0NmVWR2Q1RDUUVBV3FYT0MvOEp0WDhESnhNQ0FEUkxPeXo4SjdUTkd6bVpFQUNnTE8yMDhKL1FkbS9vWkVJQWdLTGFjZUUvb1czZjJLbUlBUURPcHAwWC9hL0s0azJlVEFnQWNMSmNGdjRUc25xenB5SUdBUEtWMjZML1ZkbSs4Vk1SQXdEdEwrZEYvNnQ4Q0djZ0NBRHF6NEovYWo2VUhoSUZBTlZsc1cvYy93TW1aSEljdWdSNjNRQUFBQUJKUlU1RXJrSmdnZz09IiwgInNpemVzIjogIjUxMng1MTIiLCAidHlwZSI6ICJpbWFnZS9wbmcifV19">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" href="data:image/png;base64,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">
+<meta name="theme-color" content="#20324A">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Öğrenci Takip">
+<title>Volkan Hoca Öğrenci Takip Sistemi</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.22.1/firebase-app-compat.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.22.1/firebase-firestore-compat.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.22.1/firebase-auth-compat.min.js"></script>
+<style>
+  :root{
+    --paper:#FAF7EF; --ink:#20324A; --ink-soft:#4C5C72; --line:#DAD3C0;
+    --sage:#5B7A5B; --sage-bg:#E7EEE3;
+    --brick:#A14B33; --brick-bg:#F4E3DC;
+    --amber:#93692A; --amber-bg:#F3E7D0;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5;padding:0 0 3rem;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 1.1rem;}
+  header.top{padding:1.4rem 1.1rem 1.1rem;border-bottom:1px solid var(--line);margin-bottom:1.2rem;display:flex;justify-content:space-between;align-items:flex-start;gap:.6rem;}
+  header.top h1{font-family:Georgia,serif;font-weight:600;font-size:1.35rem;margin:0 0 .15rem;}
+  header.top p{margin:0;color:var(--ink-soft);font-size:.88rem;}
+  #save-status{font-size:.78rem;color:var(--ink-soft);white-space:nowrap;padding-top:.2rem;}
+  .backline{display:flex;align-items:center;gap:.4rem;background:none;border:none;color:var(--ink-soft);font-size:.9rem;cursor:pointer;padding:.3rem 0;margin-bottom:.6rem;}
+  .backline:hover{color:var(--ink);}
+  h2.section{font-family:Georgia,serif;font-weight:600;font-size:1.1rem;margin:1.4rem 0 .6rem;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:1rem 1.1rem;margin-bottom:.9rem;}
+  label{display:block;font-size:.85rem;color:var(--ink-soft);margin:.55rem 0 .22rem;}
+  label:first-child{margin-top:0;}
+  input[type=text],input[type=password],input[type=file],select,textarea{width:100%;padding:.5rem .6rem;border:1px solid var(--line);border-radius:7px;font-size:1rem;background:var(--paper);color:var(--ink);font-family:inherit;}
+  textarea{resize:vertical;min-height:3rem;}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--sage);outline-offset:1px;}
+  button{cursor:pointer;font-family:inherit;font-size:.92rem;border-radius:7px;border:1px solid var(--ink);background:var(--ink);color:#fff;padding:.55rem .95rem;}
+  button:hover{opacity:.9;}
+  button.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);}
+  button.danger{background:transparent;color:var(--brick);border:1px solid var(--brick-bg);}
+  button.small{padding:.32rem .65rem;font-size:.82rem;}
+  .row{display:flex;gap:.5rem;flex-wrap:wrap;}
+  .row > *{flex:1;min-width:110px;}
+  .big-choice{display:flex;flex-direction:column;gap:.8rem;margin-top:1.4rem;}
+  .big-btn{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:10px;padding:1rem 1.1rem;color:var(--ink);}
+  .big-btn strong{display:block;font-size:1.02rem;margin-bottom:.12rem;font-family:Georgia,serif;}
+  .big-btn span{color:var(--ink-soft);font-size:.86rem;}
+  .big-btn:hover{border-color:var(--sage);}
+  .err{color:var(--brick);font-size:.85rem;margin:.4rem 0 0;}
+  .muted{color:var(--ink-soft);font-size:.85rem;}
+  .list-row{display:flex;align-items:center;justify-content:space-between;padding:.65rem 0;border-bottom:1px solid var(--line);gap:.6rem;}
+  .list-row:last-child{border-bottom:none;}
+  .tabbar{display:flex;gap:.4rem;margin-bottom:1rem;}
+  .tabbar button{flex:1;}
+  .tabbar button.active{background:var(--sage);border-color:var(--sage);}
+  .tabbar button:not(.active){background:#fff;color:var(--ink);border:1px solid var(--line);}
+  .loading{text-align:center;color:var(--ink-soft);padding:2rem 0;}
+  details{border:1px solid var(--line);border-radius:10px;background:#fff;margin-bottom:.7rem;}
+  details summary{padding:.75rem .9rem;cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
+  details summary::-webkit-details-marker{display:none;}
+  details[open] summary{border-bottom:1px solid var(--line);}
+  details .inner{padding:.9rem;}
+  .empty{text-align:center;padding:1.3rem 1rem;color:var(--ink-soft);}
+  .gridwrap{overflow-x:auto;margin-bottom:.6rem;}
+  table.grid{border-collapse:collapse;width:100%;min-width:280px;}
+  table.grid td, table.grid th{padding:.3rem .4rem;border-bottom:1px solid var(--line);border-right:1px solid var(--line);text-align:center;font-size:.9rem;}
+  table.grid td:first-child, table.grid th:first-child{text-align:left;position:sticky;left:0;background:#fff;min-width:7.5rem;}
+  table.grid th{color:var(--ink-soft);font-weight:600;font-size:.78rem;vertical-align:top;}
+  .cellbtn{min-width:2.1rem;height:2.1rem;border-radius:6px;border:1px solid var(--line);background:var(--paper);color:var(--ink-soft);font-weight:700;padding:0 .3rem;font-size:1rem;white-space:nowrap;}
+  .cellbtn.plus{background:var(--sage-bg);color:var(--sage);border-color:var(--sage-bg);}
+  .cellbtn.minus{background:var(--brick-bg);color:var(--brick);border-color:var(--brick-bg);}
+  .cellbtn.half{background:var(--amber-bg);color:var(--amber);border-color:var(--amber-bg);}
+  .cellbtn.yok{background:#E4E4E0;color:var(--ink-soft);border-color:#E4E4E0;font-size:.78rem;}
+  .score-input{width:4.5rem;padding:.3rem .35rem;font-size:.9rem;}
+  .col-toolbar{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.5rem;}
+  .pill{display:inline-block;font-size:.76rem;padding:.08rem .5rem;border-radius:20px;background:var(--sage-bg);color:var(--sage);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;vertical-align:middle;}
+  .entry-row{display:flex;justify-content:space-between;border-left:3px solid var(--sage);padding:.35rem .6rem;margin-bottom:.4rem;font-size:.92rem;}
+  .entry-row.neg{border-left-color:var(--brick);}
+  .entry-row.half{border-left-color:var(--amber);}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"><div class="loading">Yükleniyor…</div></div>
+
+<script>
+const STORAGE_KEY = 'olcek-defteri-v1';
+if(typeof pdfjsLib !== 'undefined'){
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+}
+
+/* ==== FIREBASE AYARLARI ====
+   Firebase konsolundan aldığın firebaseConfig nesnesini
+   aşağıya olduğu gibi yapıştır. ==== */
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyCJo2d9cE72B0_0skyvuoSOnsAcNMk7HaY",
+  authDomain: "volkanhocaogrencitakibi.firebaseapp.com",
+  projectId: "volkanhocaogrencitakibi",
+  storageBucket: "volkanhocaogrencitakibi.firebasestorage.app",
+  messagingSenderId: "601028541289",
+  appId: "1:601028541289:web:2e6a8ef77a2a2a73219bf8"
+};
+
+/* ==== VARSAYILAN ÖĞRETMEN (bu sitenin sahibi) ====
+   Firebase Authentication > Users sekmesinden kendi "User UID"
+   değerini kopyalayıp aşağıya yapıştır. Bu ayarlandığında,
+   hiç link parametresi olmadan siteye giren herkes otomatik
+   olarak senin sınıflarını görür. ==== */
+const DEFAULT_TEACHER_UID = "8g53sS6o2LXIQlIxmfZ6coYyIm43";
+
+let db = null;
+let CURRENT_UID = null;
+function configReady(){
+  return FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.apiKey.indexOf('BURAYA')===-1;
+}
+function initFirebase(){
+  firebase.initializeApp(FIREBASE_CONFIG);
+  db = firebase.firestore();
+}
+
+let DATA = null;
+let view = 'loading';
+let ctx = {};
+let saveTimer = null;
+let saveStatusText = '';
+let openScales = {};
+
+function emptyData(){ return { classes: {} }; }
+
+async function loadPublicData(uid){
+  try{
+    const snap = await db.collection('teachers').doc(uid).get();
+    DATA = snap.exists ? snap.data() : emptyData();
+    if(!DATA.classes) DATA.classes = {};
+  }catch(e){
+    DATA = emptyData();
+  }
+}
+
+async function loadTeacherData(uid){
+  try{
+    const snap = await db.collection('teachers').doc(uid).get();
+    if(snap.exists){ DATA = snap.data(); if(!DATA.classes) DATA.classes={}; return; }
+  }catch(e){}
+  // ilk kez giriş yapan öğretmen için: eski tek-öğretmen verisini bul ve taşı
+  try{
+    const legacy = await db.collection('appdata').doc('main').get();
+    if(legacy.exists){
+      const d = legacy.data();
+      DATA = { classes: d.classes || {} };
+      return;
+    }
+  }catch(e){}
+  DATA = emptyData();
+}
+
+function setSaveStatus(t){
+  saveStatusText = t;
+  const el = document.getElementById('save-status');
+  if(el) el.textContent = t;
+}
+
+async function saveDataNow(){
+  if(!CURRENT_UID) return false;
+  try{
+    setSaveStatus('Kaydediliyor…');
+    await db.collection('teachers').doc(CURRENT_UID).set(DATA);
+    setSaveStatus('Kaydedildi ✓');
+    return true;
+  }catch(e){
+    setSaveStatus('Kaydedilemedi — tekrar deneniyor');
+    return false;
+  }
+}
+
+function scheduleSave(){
+  setSaveStatus('Kaydediliyor…');
+  if(saveTimer) clearTimeout(saveTimer);
+  saveTimer = setTimeout(saveDataNow, 600);
+}
+
+function uid(){ return Math.random().toString(36).slice(2,10); }
+const PASSWORD_ALPHABET = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+function genPassword(){
+  let out = '';
+  for(let i=0;i<6;i++){ out += PASSWORD_ALPHABET[Math.floor(Math.random()*PASSWORD_ALPHABET.length)]; }
+  return out;
+}
+function allPasswords(){
+  const set = new Set();
+  Object.values(DATA.classes||{}).forEach(cls=>{
+    Object.values(cls.students||{}).forEach(st=>{ if(st.password) set.add(st.password); });
+  });
+  return set;
+}
+function genUniquePassword(existingSet){
+  let pw;
+  do{ pw = genPassword(); }while(existingSet.has(pw));
+  existingSet.add(pw);
+  return pw;
+}
+function esc(s){ const d=document.createElement('div'); d.innerText = s==null?'':String(s); return d.innerHTML; }
+
+function migrateData(){
+  let changed = false;
+  Object.values(DATA.classes||{}).forEach(cls=>{
+    Object.values(cls.scales||{}).forEach(sc=>{
+      if(sc.type==='fixed'){
+        sc.type='addable_pm';
+        sc.columns=[{id:uid(), label:'Genel', values: sc.values||{}}];
+        delete sc.values;
+        changed=true;
+      }
+    });
+  });
+  return changed;
+}
+
+function waitForAuthUser(){
+  return new Promise(resolve=>{
+    const unsub = firebase.auth().onAuthStateChanged(user=>{
+      unsub();
+      resolve(user);
+    });
+  });
+}
+
+async function enterStudentContext(){
+  if(DEFAULT_TEACHER_UID && DEFAULT_TEACHER_UID.indexOf('BURAYA')===-1){
+    CURRENT_UID = DEFAULT_TEACHER_UID;
+    await loadPublicData(CURRENT_UID);
+    view = 'landing';
+  } else {
+    CURRENT_UID = null;
+    DATA = emptyData();
+    view = 'noTeacherLink';
+  }
+  render();
+}
+
+async function init(){
+  if(!configReady()){
+    document.getElementById('app').innerHTML =
+      '<header class="top"><h1>Kurulum gerekli</h1></header>'+
+      '<div class="card"><p>Firebase bağlantı bilgileri girilmemiş. Dosyanın başındaki <code>FIREBASE_CONFIG</code> alanına kendi Firebase proje bilgilerini yapıştırman gerekiyor.</p></div>';
+    return;
+  }
+  try{ initFirebase(); }
+  catch(e){
+    document.getElementById('app').innerHTML =
+      '<header class="top"><h1>Bağlantı hatası</h1></header>'+
+      '<div class="card"><p>Firebase bağlantısı kurulamadı. FIREBASE_CONFIG bilgilerini kontrol et.</p></div>';
+    return;
+  }
+  const approveId = new URLSearchParams(window.location.search).get('approve');
+  if(approveId){
+    ctx = {sessionId: approveId};
+    view = 'approveDevice';
+    render();
+    return;
+  }
+  const user = await waitForAuthUser();
+  if(user){
+    CURRENT_UID = user.uid;
+    await loadTeacherData(user.uid);
+    migrateData();
+    view = 'teacherClasses';
+    render();
+  } else {
+    await enterStudentContext();
+  }
+}
+
+function attachSecretTap(el, callback){
+  if(!el) return;
+  let count = 0, timer = null;
+  el.style.cursor = 'default';
+  el.addEventListener('click', ()=>{
+    count++;
+    if(timer) clearTimeout(timer);
+    timer = setTimeout(()=>{ count = 0; }, 1800);
+    if(count>=5){ count=0; callback(); }
+  });
+}
+function go(v,c){ view=v; ctx=c||{}; render(); }
+function header(title, sub){
+  return '<header class="top"><div><h1>'+esc(title)+'</h1>'+(sub?'<p>'+esc(sub)+'</p>':'')+'</div>'+
+    (saveStatusText ? '<span id="save-status">'+esc(saveStatusText)+'</span>' : '<span id="save-status"></span>') +
+    '</header>';
+}
+function render(){
+  const app = document.getElementById('app');
+  if(view==='noTeacherLink') renderNoTeacherLink(app);
+  else if(view==='setup') renderSetup(app);
+  else if(view==='landing') renderLanding(app);
+  else if(view==='teacherLogin') renderTeacherLogin(app);
+  else if(view==='teacherLoginQR') renderTeacherLoginQR(app);
+  else if(view==='approveDevice') renderApproveDevice(app);
+  else if(view==='teacherClasses') renderTeacherClasses(app);
+  else if(view==='classPanel') renderClassPanel(app);
+  else if(view==='studentLogin') renderStudentLogin(app);
+  else if(view==='studentView') renderStudentView(app);
+  renderInstallBanner();
+}
+
+function renderNoTeacherLink(app){
+  app.innerHTML = header('Volkan Hoca Öğrenci Takip Sistemi') +
+    '<div class="card"><p class="muted">Bu bağlantı eksik görünüyor. Öğretmeninin sana verdiği tam linki kullanman gerekiyor.</p></div>';
+  attachSecretTap(app.querySelector('header.top h1'), ()=>go('teacherLogin'));
+}
+
+/* ---------- SETUP / LOGIN ---------- */
+function renderSetup(app){
+  app.innerHTML = header('Volkan Hoca Öğrenci Takip Sistemi','İlk kurulum') +
+    '<div class="card"><p class="muted">Öğretmen paneline girmek için bir şifre belirle. Bunu öğrencilerle paylaşma.</p>'+
+    '<label>Öğretmen şifresi</label><input type="password" id="setup-pw">'+
+    '<p class="err" id="setup-err" style="display:none;"></p>'+
+    '<div style="margin-top:.8rem;"><button id="setup-btn">Devam et</button></div></div>';
+  document.getElementById('setup-btn').onclick = async ()=>{
+    const pw = document.getElementById('setup-pw').value.trim();
+    const errEl = document.getElementById('setup-err');
+    if(pw.length<4){ errEl.textContent='Şifre en az 4 karakter olmalı.'; errEl.style.display='block'; return; }
+    DATA.teacherPassword = pw;
+    const ok = await saveDataNow();
+    if(!ok){ errEl.textContent='Kaydedilemedi, tekrar dene.'; errEl.style.display='block'; return; }
+    go('teacherClasses');
+  };
+}
+function renderLanding(app){
+  app.innerHTML = header('Volkan Hoca Öğrenci Takip Sistemi','Kendi bilgilerini görüntülemek için gir') +
+    '<div class="big-choice">'+
+    '<button class="big-btn" id="b-s"><strong>Öğrenci girişi</strong><span>Kendi durumunu görüntüle</span></button>'+
+    '</div>';
+  document.getElementById('b-s').onclick = ()=>go('studentLogin');
+  attachSecretTap(app.querySelector('header.top h1'), ()=>go('teacherLogin'));
+}
+function renderTeacherLogin(app){
+  app.innerHTML = header('Öğretmen girişi') +
+    '<button class="backline" id="back">← Geri</button>'+
+    '<div class="card"><label>E-posta</label><input type="text" id="t-email" autocomplete="username">'+
+    '<label>Şifre</label><input type="password" id="t-pw" autocomplete="current-password">'+
+    '<p class="err" id="t-err" style="display:none;"></p>'+
+    '<div style="margin-top:.8rem;"><button id="t-go">Giriş yap</button></div></div>'+
+    '<button class="ghost" id="t-qr" style="width:100%;">📱 Akıllı tahtada QR ile giriş yap</button>';
+  document.getElementById('back').onclick=()=>go('landing');
+  document.getElementById('t-qr').onclick=()=>go('teacherLoginQR');
+  const tryLogin=async ()=>{
+    const email=document.getElementById('t-email').value.trim();
+    const pw=document.getElementById('t-pw').value.trim();
+    const errEl=document.getElementById('t-err');
+    errEl.style.display='none';
+    if(!email||!pw){ errEl.textContent='E-posta ve şifre gir.'; errEl.style.display='block'; return; }
+    try{
+      await firebase.auth().signInWithEmailAndPassword(email, pw);
+      CURRENT_UID = firebase.auth().currentUser.uid;
+      await loadTeacherData(CURRENT_UID);
+      migrateData();
+      go('teacherClasses');
+    }catch(e){
+      errEl.textContent='Giriş başarısız: '+(e.code||e.message||'bilinmeyen hata');
+      errEl.style.display='block';
+    }
+  };
+  document.getElementById('t-go').onclick=tryLogin;
+  document.getElementById('t-pw').addEventListener('keydown',e=>{if(e.key==='Enter')tryLogin();});
+}
+
+/* ---------- QR İLE GİRİŞ (akıllı tahta tarafı) ---------- */
+let qrPollTimer = null;
+let qrSessionId = null;
+let qrStartedAt = 0;
+function makeSessionId(){ return Math.random().toString(36).slice(2,10)+Math.random().toString(36).slice(2,10); }
+
+function renderTeacherLoginQR(app){
+  qrSessionId = makeSessionId();
+  qrStartedAt = Date.now();
+  const approveUrl = location.origin + location.pathname + '?approve=' + qrSessionId;
+  app.innerHTML = header('QR ile giriş') +
+    '<button class="backline" id="back">← Geri</button>'+
+    '<div class="card" style="text-align:center;">'+
+    '<p class="muted">Telefonunla bu kodu okut, kendi telefonunda onayla — bu ekran otomatik giriş yapacak.</p>'+
+    '<div id="qr-box" style="display:flex;justify-content:center;margin:1rem 0;"></div>'+
+    '<p class="muted" id="qr-status">Bekleniyor…</p>'+
+    '</div>';
+  document.getElementById('back').onclick=()=>{ stopQrPoll(); go('teacherLogin'); };
+  new QRCode(document.getElementById('qr-box'), {text: approveUrl, width:200, height:200});
+
+  db.collection('loginRequests').doc(qrSessionId).set({status:'pending', createdAt: Date.now()}).catch(()=>{});
+
+  qrPollTimer = setInterval(async ()=>{
+    if(Date.now() - qrStartedAt > 180000){
+      stopQrPoll();
+      const st = document.getElementById('qr-status');
+      if(st){ st.textContent = 'Sürenin doldu, yeni kod oluşturmak için geri dönüp tekrar dene.'; }
+      db.collection('loginRequests').doc(qrSessionId).delete().catch(()=>{});
+      return;
+    }
+    try{
+      const snap = await db.collection('loginRequests').doc(qrSessionId).get();
+      if(!snap.exists) return;
+      const d = snap.data();
+      if(d.status==='approved' && d.email && d.password){
+        stopQrPoll();
+        const st = document.getElementById('qr-status');
+        if(st) st.textContent = 'Onaylandı, giriş yapılıyor…';
+        try{
+          await firebase.auth().signInWithEmailAndPassword(d.email, d.password);
+          CURRENT_UID = firebase.auth().currentUser.uid;
+          await loadTeacherData(CURRENT_UID);
+          migrateData();
+          db.collection('loginRequests').doc(qrSessionId).delete().catch(()=>{});
+          go('teacherClasses');
+        }catch(e){
+          if(st) st.textContent = 'Giriş başarısız oldu, geri dönüp tekrar dene.';
+        }
+      }
+    }catch(e){}
+  }, 2000);
+}
+function stopQrPoll(){
+  if(qrPollTimer){ clearInterval(qrPollTimer); qrPollTimer = null; }
+}
+
+/* ---------- QR ONAYI (öğretmenin kendi telefonu) ---------- */
+function renderApproveDevice(app){
+  app.innerHTML = header('Cihazı onayla','Bu, akıllı tahtandaki QR isteğini onaylayacak') +
+    '<div class="card"><label style="margin-top:0;">E-posta</label><input type="text" id="ap-email" autocomplete="username">'+
+    '<label>Şifre</label><input type="password" id="ap-pw" autocomplete="current-password">'+
+    '<p class="err" id="ap-err" style="display:none;"></p>'+
+    '<div style="margin-top:.8rem;"><button id="ap-go">Onayla</button></div></div>';
+  document.getElementById('ap-go').onclick=async ()=>{
+    const email=document.getElementById('ap-email').value.trim();
+    const pw=document.getElementById('ap-pw').value.trim();
+    const errEl=document.getElementById('ap-err');
+    errEl.style.display='none';
+    if(!email||!pw){ errEl.textContent='E-posta ve şifre gir.'; errEl.style.display='block'; return; }
+    try{
+      await firebase.auth().signInWithEmailAndPassword(email, pw);
+      await db.collection('loginRequests').doc(ctx.sessionId).set({status:'approved', email, password: pw, approvedAt: Date.now()});
+      const app2 = document.getElementById('app');
+      app2.innerHTML = header('Onaylandı ✓') + '<div class="card"><p>Akıllı tahtaya bakabilirsin, birkaç saniye içinde giriş yapacak.</p></div>';
+    }catch(e){
+      errEl.textContent='Giriş başarısız: '+(e.code||e.message||'bilinmeyen hata');
+      errEl.style.display='block';
+    }
+  };
+}
+
+/* ---------- CLASSES ---------- */
+function renderTeacherClasses(app){
+  const classes = Object.values(DATA.classes).sort((a,b)=>a.name.localeCompare(b.name,'tr'));
+  app.innerHTML = header('Sınıflarım') +
+    '<button class="backline" id="back">← Çıkış yap</button>'+
+    '<div class="card"><label>Yeni sınıf adı</label>'+
+    '<div class="row"><input type="text" id="new-class" placeholder="Örn: 5-A Matematik"><button id="add-class">Ekle</button></div>'+
+    '<label style="display:flex;align-items:center;gap:.4rem;margin-top:.6rem;"><input type="checkbox" id="new-class-home" style="width:auto;"> Bu benim sınıf öğretmeni olduğum sınıfım (kitap okuma modülü açılsın)</label>'+
+    '<p class="err" id="class-err" style="display:none;"></p></div>'+
+    '<h2 class="section">Sınıflar ('+classes.length+')</h2>'+
+    (classes.length ? classes.map(c=>'<div class="list-row"><span><strong>'+esc(c.name)+'</strong>'+(c.isHomeroom?' <span class="pill">Kendi sınıfım</span>':'')+' <span class="muted">'+Object.keys(c.students).length+' öğrenci</span></span>'+
+      '<span class="row" style="flex:0;gap:.4rem;"><button class="ghost small" data-open="'+c.id+'">Aç</button><button class="danger small" data-del="'+c.id+'">Sil</button></span></div>').join('')
+      : '<div class="empty">Henüz sınıf yok.</div>') ;
+  document.getElementById('back').onclick=async ()=>{ try{ await firebase.auth().signOut(); }catch(e){} await enterStudentContext(); };
+  document.getElementById('add-class').onclick=async ()=>{
+    const name=document.getElementById('new-class').value.trim();
+    const isHomeroom=document.getElementById('new-class-home').checked;
+    const errEl=document.getElementById('class-err');
+    if(!name){ errEl.textContent='Sınıf adı gir.'; errEl.style.display='block'; return; }
+    const id=uid();
+    DATA.classes[id]={id,name,students:{},scales:{},isHomeroom};
+    const ok=await saveDataNow();
+    if(!ok){ errEl.textContent='Kaydedilemedi.'; errEl.style.display='block'; return; }
+    go('teacherClasses');
+  };
+  app.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>go('classPanel',{classId:b.getAttribute('data-open'),tab:'students'}));
+  app.querySelectorAll('[data-del]').forEach(b=>b.onclick=async ()=>{
+    if(!confirm('Bu sınıfı ve tüm verilerini silmek istediğine emin misin?')) return;
+    delete DATA.classes[b.getAttribute('data-del')];
+    await saveDataNow();
+    go('teacherClasses');
+  });
+}
+
+/* ---------- CLASS PANEL ---------- */
+function fmtDate(iso){
+  if(!iso) return '';
+  const p = iso.split('-');
+  return p.length===3 ? p[2]+'.'+p[1]+'.'+p[0] : iso;
+}
+function todayISO(){ return new Date().toISOString().slice(0,10); }
+
+function renderClassPanel(app){
+  const cls = DATA.classes[ctx.classId];
+  if(!cls){ go('teacherClasses'); return; }
+  const tab = ctx.tab || 'students';
+  app.innerHTML = header(cls.name) +
+    '<button class="backline" id="back">← Sınıflar</button>'+
+    '<label style="display:flex;align-items:center;gap:.4rem;margin-bottom:.8rem;font-size:.85rem;color:var(--ink-soft);"><input type="checkbox" id="home-toggle" style="width:auto;" '+(cls.isHomeroom?'checked':'')+'> Bu benim sınıf öğretmeni olduğum sınıfım</label>'+
+    '<div class="tabbar">'+
+      '<button class="'+(tab==='students'?'active':'')+'" id="tab-s">Öğrenciler</button>'+
+      '<button class="'+(tab==='assignments'?'active':'')+'" id="tab-a">Ödevler</button>'+
+      '<button class="'+(tab==='scales'?'active':'')+'" id="tab-o">Ölçekler</button>'+
+      '<button class="'+(tab==='oral'?'active':'')+'" id="tab-g">Sözlü Notu</button>'+
+      (cls.isHomeroom ? '<button class="'+(tab==='books'?'active':'')+'" id="tab-b">Kitaplar</button>' : '')+
+    '</div>'+
+    '<div id="tab-body"></div>';
+  document.getElementById('back').onclick=()=>go('teacherClasses');
+  document.getElementById('home-toggle').onchange=async (e)=>{
+    cls.isHomeroom = e.target.checked;
+    await saveDataNow();
+    go('classPanel',{classId:cls.id,tab: e.target.checked ? tab : (tab==='books'?'students':tab)});
+  };
+  document.getElementById('tab-s').onclick=()=>go('classPanel',{classId:cls.id,tab:'students'});
+  document.getElementById('tab-a').onclick=()=>go('classPanel',{classId:cls.id,tab:'assignments'});
+  document.getElementById('tab-o').onclick=()=>go('classPanel',{classId:cls.id,tab:'scales'});
+  document.getElementById('tab-g').onclick=()=>go('classPanel',{classId:cls.id,tab:'oral'});
+  const tabB = document.getElementById('tab-b');
+  if(tabB) tabB.onclick=()=>go('classPanel',{classId:cls.id,tab:'books'});
+  const body=document.getElementById('tab-body');
+  if(tab==='students') renderStudentsTab(body, cls);
+  else if(tab==='assignments') renderAssignmentsTab(body, cls);
+  else if(tab==='oral') renderOralGradeTab(body, cls);
+  else if(tab==='books' && cls.isHomeroom) renderBooksTab(body, cls);
+  else renderScalesTab(body, cls);
+}
+
+function readingLogCollection(){
+  return db.collection('teachers').doc(CURRENT_UID).collection('readingLog');
+}
+function studentAuthDoc(studentId){
+  return db.collection('teachers').doc(CURRENT_UID).collection('studentAuth').doc(studentId);
+}
+async function syncStudentAuth(studentId, password){
+  try{ await studentAuthDoc(studentId).set({password}); }catch(e){}
+}
+async function removeStudentAuth(studentId){
+  try{ await studentAuthDoc(studentId).delete(); }catch(e){}
+}
+let readingLogCache = {};
+let myReadingLogCache = {};
+
+async function fetchReadingLog(classId){
+  try{
+    const snap = await readingLogCollection().where('classId','==',classId).get();
+    return snap.docs.map(d=>({id:d.id, ...d.data()}));
+  }catch(e){ return []; }
+}
+async function fetchStudentReadingLog(studentId){
+  try{
+    const snap = await readingLogCollection().where('studentId','==',studentId).get();
+    return snap.docs.map(d=>({id:d.id, ...d.data()}));
+  }catch(e){ return []; }
+}
+
+function renderBooksTab(body, cls){
+  const students = Object.values(cls.students);
+  if(readingLogCache[cls.id]){
+    renderBooksTabContent(body, cls, students, readingLogCache[cls.id]);
+    return;
+  }
+  body.innerHTML = '<div class="loading">Yükleniyor…</div>';
+  fetchReadingLog(cls.id).then(entries=>{
+    readingLogCache[cls.id] = entries;
+    if(view==='classPanel' && ctx.classId===cls.id && ctx.tab==='books') renderBooksTab(body, cls);
+  });
+}
+
+function renderBooksTabContent(body, cls, students, entries){
+  const byStudent = {};
+  students.forEach(s=>{ byStudent[s.id] = []; });
+  entries.filter(e=>!e.deleted).forEach(e=>{ if(byStudent[e.studentId]) byStudent[e.studentId].push(e); });
+
+  const studentOptions = students.map(s=>'<option value="'+esc(s.id)+'">'+esc(s.name)+'</option>').join('');
+  body.innerHTML =
+    '<div class="card"><label style="margin-top:0;">Öğrenci</label>'+
+    '<select id="bk-student">'+studentOptions+'</select>'+
+    '<label>Kitap adı</label><input type="text" id="bk-title" placeholder="Kitap adı">'+
+    '<label>Sayfa sayısı</label><input type="text" id="bk-pages" inputmode="numeric" placeholder="Örn: 180">'+
+    '<p class="err" id="bk-err" style="display:none;"></p>'+
+    '<div style="margin-top:.6rem;"><button id="bk-add">Kitap ekle</button></div></div>'+
+    '<h2 class="section">Öğrencilerin okuduğu kitaplar</h2>'+
+    (students.length ? students.map(s=>{
+      const books = byStudent[s.id].slice().sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+      const totalPages = books.reduce((sum,b)=>sum+(parseInt(b.pages)||0),0);
+      return '<details><summary><span>'+esc(s.name)+'</span><span class="muted">'+books.length+' kitap · '+totalPages+' sayfa</span></summary>'+
+        '<div class="inner">'+
+        (books.length ? books.map(b=>'<div class="list-row" id="bkrow-'+b.id+'">'+
+          '<span><strong>'+esc(b.title)+'</strong> <span class="muted">('+esc(b.pages)+' sayfa'+(b.date?', '+fmtDate(b.date):'')+')</span></span>'+
+          '<span class="row" style="flex:0;gap:.4rem;"><button class="ghost small" data-editbk="'+b.id+'">Düzenle</button><button class="danger small" data-delbk="'+b.id+'">Sil</button></span></div>').join('')
+          : '<p class="muted">Henüz kitap eklenmedi.</p>')+
+        '</div></details>';
+    }).join('') : '<div class="empty">Önce öğrenci ekle.</div>');
+
+  document.getElementById('bk-add').onclick=async ()=>{
+    const studentId=document.getElementById('bk-student').value;
+    const title=document.getElementById('bk-title').value.trim();
+    const pages=document.getElementById('bk-pages').value.trim();
+    const errEl=document.getElementById('bk-err');
+    if(!studentId || !title || !pages){ errEl.textContent='Öğrenci, kitap adı ve sayfa sayısı gerekli.'; errEl.style.display='block'; return; }
+    try{
+      await readingLogCollection().add({classId:cls.id, studentId, title, pages, date: todayISO(), addedBy:'teacher'});
+      delete readingLogCache[cls.id];
+      go('classPanel',{classId:cls.id,tab:'books'});
+    }catch(e){
+      errEl.textContent='Kaydedilemedi, tekrar dene.';
+      errEl.style.display='block';
+    }
+  };
+  body.querySelectorAll('[data-delbk]').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      if(!confirm('Bu kitabı silmek istediğine emin misin?')) return;
+      try{
+        await readingLogCollection().doc(btn.getAttribute('data-delbk')).delete();
+        delete readingLogCache[cls.id];
+        go('classPanel',{classId:cls.id,tab:'books'});
+      }catch(e){ alert('Silinemedi, tekrar dene.'); }
+    });
+  });
+  body.querySelectorAll('[data-editbk]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const id = btn.getAttribute('data-editbk');
+      const entry = entries.find(e=>e.id===id);
+      if(!entry) return;
+      const row = document.getElementById('bkrow-'+id);
+      row.innerHTML = '<div class="row" style="width:100%;">'+
+        '<input type="text" id="ebk-title-'+id+'" value="'+esc(entry.title)+'">'+
+        '<input type="text" id="ebk-pages-'+id+'" value="'+esc(entry.pages)+'" style="max-width:5rem;">'+
+        '<button class="ghost small" id="ebk-save-'+id+'">Kaydet</button>'+
+        '</div>';
+      document.getElementById('ebk-save-'+id).onclick=async ()=>{
+        const title=document.getElementById('ebk-title-'+id).value.trim();
+        const pages=document.getElementById('ebk-pages-'+id).value.trim();
+        if(!title||!pages) return;
+        try{
+          await readingLogCollection().doc(id).update({title,pages});
+          delete readingLogCache[cls.id];
+          go('classPanel',{classId:cls.id,tab:'books'});
+        }catch(e){ alert('Kaydedilemedi.'); }
+      };
+    });
+  });
+}
+
+function renderAssignmentsTab(body, cls){
+  cls.assignments = cls.assignments || [];
+  const items = cls.assignments.slice().sort((a,b)=>b.date.localeCompare(a.date));
+  body.innerHTML =
+    '<div class="card"><label style="margin-top:0;">Tarih</label>'+
+    '<input type="date" id="hw-date" value="'+todayISO()+'">'+
+    '<label>Ödev</label><textarea id="hw-text" placeholder="Örn: Matematik ders kitabı sayfa 234"></textarea>'+
+    '<label>Dosya linki (opsiyonel)</label>'+
+    '<input type="text" id="hw-link" placeholder="Google Drive linki yapıştır">'+
+    '<p class="muted" style="margin-top:.3rem;">Drive\'da dosyaya sağ tık → Paylaş → "Bağlantıya sahip olan herkes" seçeneğini aç, sonra linki buraya yapıştır. Yoksa öğrenciler açamaz.</p>'+
+    '<p class="err" id="hw-err" style="display:none;"></p>'+
+    '<div style="margin-top:.6rem;"><button id="hw-add">Ödev ekle</button></div></div>'+
+    '<h2 class="section">Verilen ödevler ('+items.length+')</h2>'+
+    (items.length ? items.map(it=>'<div class="list-row"><span><strong>'+esc(fmtDate(it.date))+'</strong> — '+esc(it.text)+
+      (it.link ? ' <a href="'+esc(it.link)+'" target="_blank" rel="noopener">🔗 dosya</a>' : '')+'</span>'+
+      '<button class="danger small" data-delhw="'+it.id+'">Sil</button></div>').join('')
+      : '<div class="empty">Henüz ödev girilmedi.</div>');
+
+  document.getElementById('hw-add').onclick=async ()=>{
+    const date=document.getElementById('hw-date').value;
+    const text=document.getElementById('hw-text').value.trim();
+    const link=document.getElementById('hw-link').value.trim();
+    const errEl=document.getElementById('hw-err');
+    if(!date || !text){ errEl.textContent='Tarih ve ödev metni gerekli.'; errEl.style.display='block'; return; }
+    const entry = {id:uid(), date, text};
+    if(link) entry.link = link;
+    cls.assignments.push(entry);
+    await saveDataNow();
+    go('classPanel',{classId:cls.id,tab:'assignments'});
+  };
+  body.querySelectorAll('[data-delhw]').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      if(!confirm('Bu ödevi silmek istediğine emin misin?')) return;
+      const id=btn.getAttribute('data-delhw');
+      cls.assignments = cls.assignments.filter(x=>x.id!==id);
+      await saveDataNow();
+      go('classPanel',{classId:cls.id,tab:'assignments'});
+    });
+  });
+}
+
+function exportPasswordsPDF(cls){
+  const students = Object.values(cls.students);
+  const w = window.open('', '_blank');
+  if(!w){ alert('Yeni pencere açılamadı. Tarayıcının açılır pencere engellemesini kontrol et.'); return; }
+  const rows = students.map((s,i)=>'<tr><td>'+(i+1)+'</td><td>'+esc(s.name)+'</td><td>'+esc(s.password)+'</td></tr>').join('');
+  w.document.write(
+    '<html><head><meta charset="UTF-8"><title>'+esc(cls.name)+' - Şifreler</title>'+
+    '<style>'+
+    'body{font-family:Georgia,serif;padding:2rem;color:#222;}'+
+    'h1{font-size:1.3rem;margin-bottom:.2rem;}'+
+    'p{color:#555;margin-top:0;font-size:.9rem;}'+
+    'table{width:100%;border-collapse:collapse;margin-top:1rem;}'+
+    'th,td{border:1px solid #ccc;padding:.5rem .7rem;text-align:left;font-size:.95rem;}'+
+    'th{background:#f2f2f2;}'+
+    '@media print{ body{padding:0;} }'+
+    '</style></head><body>'+
+    '<h1>'+esc(cls.name)+' — Öğrenci Giriş Şifreleri</h1>'+
+    '<p>Öğrenci girişi için kullanılacak isim ve şifreler.</p>'+
+    '<table><thead><tr><th>#</th><th>Ad Soyad</th><th>Şifre</th></tr></thead><tbody>'+rows+'</tbody></table>'+
+    '</body></html>'
+  );
+  w.document.close();
+  w.focus();
+  setTimeout(()=>{ w.print(); }, 300);
+}
+
+function normalizeHeaderCell(s){
+  return String(s||'').toLocaleLowerCase('tr').replace(/[^a-zçğıiöşü]/g,'');
+}
+function looksLikeNameLine(s){
+  return /^[A-ZÇĞİÖŞÜ]+(\s[A-ZÇĞİÖŞÜ]+){1,4}$/.test(s.trim());
+}
+function titleCaseTurkish(s){
+  return s.toLocaleLowerCase('tr-TR').split(' ').map(w=> w.length ? w.charAt(0).toLocaleUpperCase('tr-TR')+w.slice(1) : w).join(' ');
+}
+async function extractNamesFromPdf(file){
+  const buf = await file.arrayBuffer();
+  const pdf = await pdfjsLib.getDocument({data: buf}).promise;
+  const items = [];
+  let fullText = '';
+  for(let p=1; p<=pdf.numPages; p++){
+    const page = await pdf.getPage(p);
+    const content = await page.getTextContent();
+    content.items.forEach(it=>{ if(it.str && it.str.trim()){ items.push(it.str.trim()); fullText += ' ' + it.str.trim(); } });
+  }
+  const names = [];
+  const seen = new Set();
+  // Yöntem 1: isim ve numara ayrı metin parçaları olarak geliyorsa (art arda)
+  for(let i=1; i<items.length; i++){
+    if(/^\d+$/.test(items[i]) && looksLikeNameLine(items[i-1])){
+      const name = titleCaseTurkish(items[i-1]);
+      if(!seen.has(name)){ seen.add(name); names.push(name); }
+    }
+  }
+  // Yöntem 2: isim+numara boşluksuz birleşik parça geliyorsa (ya da yöntem 1 kaçırdıysa), tüm metni tarayıp ayır
+  const re = /([A-ZÇĞİÖŞÜ][A-ZÇĞİÖŞÜ\s]{2,60}?)(\d{1,4})/g;
+  let m;
+  while((m = re.exec(fullText)) !== null){
+    const raw = m[1].replace(/\s+/g,' ').trim();
+    if(raw.split(' ').length < 2) continue;
+    const name = titleCaseTurkish(raw);
+    if(!seen.has(name)){ seen.add(name); names.push(name); }
+  }
+  return names;
+}
+
+function findNameHeaderColumns(rows){
+  for(let i=0;i<Math.min(rows.length,6);i++){
+    const row = rows[i]||[];
+    let adIdx=-1, soyadIdx=-1;
+    row.forEach((cell,ci)=>{
+      const norm = normalizeHeaderCell(cell);
+      if(!norm) return;
+      if(norm.includes('soyad') && soyadIdx===-1) soyadIdx=ci;
+      else if((norm.includes('ad') || norm.includes('isim')) && adIdx===-1 && !norm.includes('soyad')) adIdx=ci;
+    });
+    if(adIdx!==-1 && soyadIdx!==-1) return {headerRowIndex:i, adIdx, soyadIdx};
+  }
+  return null;
+}
+
+let authSyncedClasses = new Set();
+function ensureStudentAuthSynced(cls){
+  if(authSyncedClasses.has(cls.id)) return;
+  authSyncedClasses.add(cls.id);
+  Object.values(cls.students).forEach(s=>{ syncStudentAuth(s.id, s.password); });
+}
+
+function renderOralGradeTab(body, cls){
+  const students = Object.values(cls.students);
+  const pct = cls.oralPercentage!=null ? cls.oralPercentage : '';
+  body.innerHTML =
+    '<div class="card"><label style="margin-top:0;">Sözlüye en fazla kaç puan etkisi olsun?</label>'+
+    '<p class="muted" style="margin-top:0;">Örn: 15 girersen, ölçeklerde tam not (%100) alan öğrenciye en fazla 15 puan, yarısını alana ~7-8 puan verilir.</p>'+
+    '<div class="row"><input type="text" id="oral-pct" inputmode="numeric" placeholder="Örn: 15" value="'+esc(pct)+'"><button id="oral-calc">Hesapla</button></div>'+
+    '</div>'+
+    '<div id="oral-result"></div>';
+  document.getElementById('oral-calc').onclick=async ()=>{
+    const val = parseFloat(document.getElementById('oral-pct').value.replace(',','.'));
+    if(isNaN(val)){ alert('Geçerli bir sayı gir.'); return; }
+    cls.oralPercentage = val;
+    await saveDataNow();
+    renderOralResult(val);
+  };
+  if(pct!=='') renderOralResult(pct);
+
+  function renderOralResult(percentage){
+    const resultEl = document.getElementById('oral-result');
+    if(!students.length){ resultEl.innerHTML = '<div class="empty">Önce öğrenci ekle.</div>'; return; }
+    const rows = students.map(s=>{
+      const avg = overallStudentAverage(cls, s.id);
+      const oralGrade = avg!=null ? (percentage * avg / 100) : null;
+      return {name:s.name, avg, oralGrade};
+    });
+    resultEl.innerHTML =
+      '<h2 class="section">Sınıfın sözlü notları</h2>'+
+      '<div class="gridwrap"><table class="grid"><thead><tr><th style="text-align:left;">Öğrenci</th><th>Ölçek ort.</th><th>Sözlü notu</th></tr></thead><tbody>'+
+      rows.map(r=>'<tr><td style="text-align:left;">'+esc(r.name)+'</td><td style="text-align:center;">'+(r.avg!=null?'%'+Math.round(r.avg):'—')+'</td><td style="text-align:center;font-weight:600;">'+(r.oralGrade!=null?r.oralGrade.toFixed(1):'—')+'</td></tr>').join('')+
+      '</tbody></table></div>'+
+      '<p class="muted" style="margin-top:.6rem;">"—" görünen öğrencinin henüz hiçbir ölçekte kaydı yok.</p>';
+  }
+}
+
+function renderStudentsTab(body, cls){
+  ensureStudentAuthSynced(cls);
+  const students = Object.values(cls.students);
+  body.innerHTML =
+    '<div class="card"><label style="margin-top:0;">Tekli ekle</label>'+
+    '<div class="row"><input type="text" id="new-name" placeholder="Ad Soyad"></div>'+
+    '<div style="margin-top:.6rem;"><button id="new-add">Öğrenci ekle</button></div></div>'+
+    '<details><summary><span>Toplu ekle</span><span class="muted">liste yapıştır</span></summary><div class="inner">'+
+    '<textarea id="bulk-names" placeholder="Bir satıra bir isim" style="min-height:5rem;"></textarea>'+
+    '<div style="margin-top:.5rem;"><button id="bulk-add">Listeyi ekle</button></div>'+
+    '<div id="bulk-result"></div></div></details>'+
+    '<details><summary><span>Excel / CSV içe aktar</span><span class="muted">e-okul listesi</span></summary><div class="inner">'+
+    '<p class="muted">İlk sütunda öğrenci adlarının olduğu bir Excel (.xlsx) veya CSV dosyası seç.</p>'+
+    '<input type="file" id="xlsx-file" accept=".xlsx,.xls,.csv">'+
+    '<p class="err" id="xlsx-err" style="display:none;"></p>'+
+    '<div id="xlsx-result"></div></div></details>'+
+    '<details><summary><span>Fotoğraflı liste aktar</span><span class="muted">e-okul PDF</span></summary><div class="inner">'+
+    '<p class="muted">e-okul\'dan indirdiğin fotoğraflı sınıf listesi PDF\'ini seç, isimleri otomatik ayıklayayım (fotoğraflar aktarılmaz, sadece isimler).</p>'+
+    '<input type="file" id="pdf-file" accept=".pdf">'+
+    '<p class="err" id="pdf-err" style="display:none;"></p>'+
+    '<div id="pdf-result"></div></div></details>'+
+    '<h2 class="section">Öğrenciler ('+students.length+')</h2>'+
+    (students.length ? '<div style="margin-bottom:.6rem;"><button class="ghost small" id="export-pdf">Şifre listesini yazdır / PDF indir</button></div>' : '') +
+    (students.length ? students.map(s=>studentRowHtml(s)).join('') : '<div class="empty">Henüz öğrenci yok.</div>');
+
+  document.getElementById('new-add').onclick=async ()=>{
+    const v=document.getElementById('new-name').value.trim();
+    if(!v) return;
+    const id=uid();
+    const pw=genUniquePassword(allPasswords());
+    cls.students[id]={id,name:v,password:pw,note:''};
+    await saveDataNow();
+    await syncStudentAuth(id, pw);
+    go('classPanel',{classId:cls.id,tab:'students'});
+  };
+  document.getElementById('bulk-add').onclick=async ()=>{
+    const lines=document.getElementById('bulk-names').value.split('\n').map(l=>l.trim()).filter(Boolean);
+    if(!lines.length) return;
+    const created=[]; const existingPw=allPasswords();
+    lines.forEach(name=>{ const id=uid(); const pw=genUniquePassword(existingPw); cls.students[id]={id,name,password:pw,note:''}; created.push({id,name,pw}); });
+    await saveDataNow();
+    await Promise.all(created.map(c=>syncStudentAuth(c.id, c.pw)));
+    document.getElementById('bulk-result').innerHTML='<p class="muted" style="margin-top:.6rem;">Eklendi, şifreleri not al:</p><div class="card">'+
+      created.map(c=>'<div class="list-row"><span>'+esc(c.name)+'</span><strong>'+esc(c.pw)+'</strong></div>').join('')+'</div>';
+    renderStudentListOnly(cls);
+  };
+  document.getElementById('xlsx-file').onchange=(ev)=>{
+    const file=ev.target.files[0];
+    if(!file) return;
+    const errEl=document.getElementById('xlsx-err');
+    errEl.style.display='none';
+    const reader=new FileReader();
+    reader.onload=async (e)=>{
+      try{
+        const wb = XLSX.read(e.target.result, {type:'array'});
+        const sheet = wb.Sheets[wb.SheetNames[0]];
+        const rows = XLSX.utils.sheet_to_json(sheet, {header:1});
+        const headerInfo = findNameHeaderColumns(rows);
+        let names;
+        if(headerInfo){
+          names = rows.slice(headerInfo.headerRowIndex+1).map(r=>{
+            const ad = String((r&&r[headerInfo.adIdx])||'').trim();
+            const soyad = String((r&&r[headerInfo.soyadIdx])||'').trim();
+            return (ad+' '+soyad).trim();
+          }).filter(n=>n && /[a-zA-ZçğıöşüÇĞİÖŞÜ]/.test(n));
+        } else {
+          names = rows.map(r=>String((r&&r[0])||'').trim())
+            .filter(n=>n && !/^(ad|isim|no|sıra|öğrenci)/i.test(n));
+        }
+        if(!names.length){ errEl.textContent='Dosyada isim bulunamadı.'; errEl.style.display='block'; return; }
+        const created=[]; const existingPw2=allPasswords();
+        names.forEach(name=>{ const id=uid(); const pw=genUniquePassword(existingPw2); cls.students[id]={id,name,password:pw,note:''}; created.push({id,name,pw}); });
+        await saveDataNow();
+        await Promise.all(created.map(c=>syncStudentAuth(c.id, c.pw)));
+        document.getElementById('xlsx-result').innerHTML='<p class="muted" style="margin-top:.6rem;">'+created.length+' öğrenci eklendi. Şifreleri not al:</p><div class="card">'+
+          created.map(c=>'<div class="list-row"><span>'+esc(c.name)+'</span><strong>'+esc(c.pw)+'</strong></div>').join('')+'</div>';
+        renderStudentListOnly(cls);
+      }catch(err){
+        errEl.textContent='Dosya okunamadı. Excel (.xlsx) veya CSV formatında olduğundan emin ol.';
+        errEl.style.display='block';
+      }
+    };
+    reader.readAsArrayBuffer(file);
+  };
+  document.getElementById('pdf-file').onchange=(ev)=>{
+    const file=ev.target.files[0];
+    if(!file) return;
+    const errEl=document.getElementById('pdf-err');
+    errEl.style.display='none';
+    extractNamesFromPdf(file).then(async (names)=>{
+      if(!names.length){ errEl.textContent='PDF\'te isim bulunamadı. Dosyanın metin tabanlı (taranmış görüntü değil) olduğundan emin ol.'; errEl.style.display='block'; return; }
+      const created=[]; const existingPw3=allPasswords();
+      names.forEach(name=>{ const id=uid(); const pw=genUniquePassword(existingPw3); cls.students[id]={id,name,password:pw,note:''}; created.push({id,name,pw}); });
+      await saveDataNow();
+      await Promise.all(created.map(c=>syncStudentAuth(c.id, c.pw)));
+      document.getElementById('pdf-result').innerHTML='<p class="muted" style="margin-top:.6rem;">'+created.length+' öğrenci eklendi. Şifreleri not al:</p><div class="card">'+
+        created.map(c=>'<div class="list-row"><span>'+esc(c.name)+'</span><strong>'+esc(c.pw)+'</strong></div>').join('')+'</div>';
+      renderStudentListOnly(cls);
+    }).catch(()=>{
+      errEl.textContent='PDF okunamadı. Dosyanın bozuk olmadığından emin ol.';
+      errEl.style.display='block';
+    });
+  };
+  students.forEach(s=>wireStudentRow(cls, s.id));
+  const exportBtn = document.getElementById('export-pdf');
+  if(exportBtn) exportBtn.onclick = ()=>exportPasswordsPDF(cls);
+}
+
+function renderStudentListOnly(cls){
+  const container = document.getElementById('tab-body');
+  if(!container) return;
+  go('classPanel',{classId:cls.id,tab:'students'});
+}
+
+function studentRowHtml(s){
+  return '<details id="srow-'+s.id+'"><summary><span>'+esc(s.name)+'</span><span class="muted">detay</span></summary>'+
+    '<div class="inner">'+
+    '<label style="margin-top:0;">İsim</label>'+
+    '<div class="row"><input type="text" data-role="name" data-id="'+s.id+'" value="'+esc(s.name)+'"><button class="ghost small" data-act="save-name" data-id="'+s.id+'">Kaydet</button></div>'+
+    '<label>Şifre</label>'+
+    '<div class="row" style="align-items:center;"><span data-pw="'+esc(s.password)+'" data-role="pwshow" data-id="'+s.id+'">••••</span><button class="ghost small" data-act="toggle-pw" data-id="'+s.id+'">Göster</button><button class="ghost small" data-act="regen-pw" data-id="'+s.id+'">Yeni şifre üret</button></div>'+
+    '<label>Not / görüş</label><textarea data-role="note" data-id="'+s.id+'">'+esc(s.note||'')+'</textarea>'+
+    '<div class="row" style="margin-top:.4rem;"><button class="ghost small" data-act="save-note" data-id="'+s.id+'">Notu kaydet</button>'+
+    '<button class="danger small" data-act="del-student" data-id="'+s.id+'">Öğrenciyi sil</button></div>'+
+    '</div></details>';
+}
+
+function wireStudentRow(cls, id){
+  const root=document.getElementById('srow-'+id);
+  if(!root) return;
+  root.querySelectorAll('[data-act]').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      const act=btn.getAttribute('data-act');
+      if(act==='toggle-pw'){
+        const span=root.querySelector('[data-role="pwshow"][data-id="'+id+'"]');
+        if(btn.textContent==='Gizle'){ span.textContent='••••'; btn.textContent='Göster'; }
+        else{ span.textContent=span.getAttribute('data-pw'); btn.textContent='Gizle'; }
+      }else if(act==='save-name'){
+        const inp=root.querySelector('[data-role="name"][data-id="'+id+'"]');
+        const newName=inp.value.trim();
+        if(!newName) return;
+        cls.students[id].name=newName;
+        await saveDataNow();
+        go('classPanel',{classId:cls.id,tab:'students'});
+      }else if(act==='regen-pw'){
+        if(!confirm('Bu öğrenciye yeni bir şifre üretilsin mi? Eski şifre geçersiz olur.')) return;
+        const newPw = genUniquePassword(allPasswords());
+        cls.students[id].password = newPw;
+        await saveDataNow();
+        await syncStudentAuth(id, newPw);
+        go('classPanel',{classId:cls.id,tab:'students'});
+      }else if(act==='save-note'){
+        const ta=root.querySelector('[data-role="note"][data-id="'+id+'"]');
+        cls.students[id].note=ta.value;
+        scheduleSave();
+        btn.textContent='Kaydedildi'; setTimeout(()=>btn.textContent='Notu kaydet',1200);
+      }else if(act==='del-student'){
+        if(!confirm('Bu öğrenciyi silmek istediğine emin misin?')) return;
+        delete cls.students[id];
+        await saveDataNow();
+        await removeStudentAuth(id);
+        go('classPanel',{classId:cls.id,tab:'students'});
+      }
+    });
+  });
+}
+
+/* ---------- SCALES / GRID ---------- */
+function renderScalesTab(body, cls){
+  const scales = Object.values(cls.scales);
+  const students = Object.values(cls.students);
+  body.innerHTML =
+    '<div class="card"><label style="margin-top:0;">Yeni ölçek</label>'+
+    '<div class="row"><input type="text" id="new-scale-name" placeholder="Örn: Ödev, Sözlü, Katılım"></div>'+
+    '<label>Tür</label><select id="new-scale-type">'+
+      '<option value="addable_pm">+/- ölçeği (istediğin zaman yeni sütun ekle)</option>'+
+      '<option value="addable_score">Puanlı ölçek</option>'+
+      '<option value="participation">Derse katılım (rastgele öğrenci seç)</option>'+
+    '</select>'+
+    '<div style="margin-top:.6rem;"><button id="add-scale">Ölçek ekle</button></div>'+
+    '<p class="err" id="scale-err" style="display:none;"></p></div>'+
+    (students.length===0 ? '<p class="muted">Önce Öğrenciler sekmesinden öğrenci ekle.</p>' : '') +
+    '<h2 class="section">Ölçekler ('+scales.length+')</h2>'+
+    (scales.length ? scales.map(sc=>scaleDetailsHtml(sc, students)).join('') : '<div class="empty">Henüz ölçek yok.</div>');
+
+  document.getElementById('add-scale').onclick=async ()=>{
+    const name=document.getElementById('new-scale-name').value.trim();
+    const type=document.getElementById('new-scale-type').value;
+    const errEl=document.getElementById('scale-err');
+    if(!name){ errEl.textContent='Ölçek adı gir.'; errEl.style.display='block'; return; }
+    const id=uid();
+    if(type==='participation'){
+      cls.scales[id]={id,name,type,columns:[],calledIds:[]};
+    } else {
+      cls.scales[id]={id,name,type,columns:[{id:uid(), label:'Genel', values:{}}]};
+    }
+    openScales[id]=true;
+    await saveDataNow();
+    go('classPanel',{classId:cls.id,tab:'scales'});
+  };
+  scales.forEach(sc=>wireScale(cls, sc.id, students));
+  body.querySelectorAll('details[data-scaleid]').forEach(d=>{
+    d.addEventListener('toggle', ()=>{ openScales[d.getAttribute('data-scaleid')] = d.open; });
+  });
+}
+
+function cellSymbol(v){ return v==='+'?'+':v==='-'?'−':v==='~'?'½':v==='yok'?'Yok':''; }
+function markToNumeric(v){ return v==='+'?100:v==='~'?50:v==='-'?0:null; }
+function average(arr){ return arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : null; }
+function collectScaleStudentValues(sc, studentId){
+  const vals = [];
+  (sc.columns||[]).forEach(col=>{
+    const raw = (col.values||{})[studentId];
+    if(raw==null || raw==='') return;
+    if(sc.type==='addable_score'){
+      const n = parseFloat(String(raw).replace(',','.'));
+      if(!isNaN(n)) vals.push(n);
+    } else {
+      const n = markToNumeric(raw);
+      if(n!=null) vals.push(n);
+    }
+  });
+  return vals;
+}
+function scaleStudentPercent(sc, studentId){
+  return average(collectScaleStudentValues(sc, studentId));
+}
+function overallStudentAverage(cls, studentId){
+  let all = [];
+  Object.values(cls.scales||{}).forEach(sc=>{ all = all.concat(collectScaleStudentValues(sc, studentId)); });
+  return average(all);
+}
+function cellClass(v){ return v==='+'?'plus':v==='-'?'minus':v==='~'?'half':v==='yok'?'yok':''; }
+function nextValue(v){ return v===''||v==null?'+':v==='+'?'~':v==='~'?'-':v==='-'?'yok':''; }
+
+function pmGridHtml(students, values, scopeId){
+  return '<div class="col-toolbar">'+
+    '<button class="ghost small" data-bulk="+" data-scope="'+scopeId+'">Tümünü + yap</button>'+
+    '<button class="ghost small" data-bulk="-" data-scope="'+scopeId+'">Tümünü − yap</button>'+
+    '<button class="ghost small" data-bulk="" data-scope="'+scopeId+'">Temizle</button>'+
+    '</div>'+
+    '<div class="gridwrap"><table class="grid"><tbody>'+
+    students.map(s=>{
+      const v = values[s.id]||'';
+      return '<tr><td>'+esc(s.name)+'</td><td><button class="cellbtn '+cellClass(v)+'" data-cell="'+s.id+'" data-scope="'+scopeId+'">'+cellSymbol(v)+'</button></td></tr>';
+    }).join('') + '</tbody></table></div>';
+}
+
+function scoreGridHtml(students, values, scopeId){
+  return '<div class="gridwrap"><table class="grid"><tbody>'+
+    students.map(s=>'<tr><td>'+esc(s.name)+'</td><td><input class="score-input" type="text" inputmode="decimal" data-score="'+s.id+'" data-scope="'+scopeId+'" value="'+esc(values[s.id]||'')+'"></td></tr>').join('')+
+    '</tbody></table></div>';
+}
+
+function scaleGridWideHtml(sc, students){
+  const cols = sc.columns||[];
+  if(!cols.length) return '<p class="muted">Henüz sütun yok.</p>';
+  const header = '<tr><th>Öğrenci</th>' + cols.map(col=>{
+    const scope = sc.id+':'+col.id;
+    const bulk = sc.type==='addable_pm'
+      ? '<div class="row" style="gap:.2rem;margin-top:.25rem;"><button class="ghost small" data-bulk="+" data-scope="'+scope+'">+</button><button class="ghost small" data-bulk="-" data-scope="'+scope+'">−</button><button class="ghost small" data-bulk="" data-scope="'+scope+'">×</button></div>'
+      : '';
+    return '<th><div>'+esc(col.label)+'</div>'+bulk+'<button class="danger small" style="margin-top:.25rem;" data-delcol="'+sc.id+'" data-colid="'+col.id+'">Sil</button></th>';
+  }).join('') + '</tr>';
+  const body = students.map(s=>{
+    const cells = cols.map(col=>{
+      const scope = sc.id+':'+col.id;
+      const v = (col.values||{})[s.id]||'';
+      if(sc.type==='addable_pm'){
+        return '<td><button class="cellbtn '+cellClass(v)+'" data-cell="'+s.id+'" data-scope="'+scope+'">'+cellSymbol(v)+'</button></td>';
+      }
+      return '<td><input class="score-input" type="text" inputmode="decimal" data-score="'+s.id+'" data-scope="'+scope+'" value="'+esc(v)+'"></td>';
+    }).join('');
+    return '<tr><td>'+esc(s.name)+'</td>'+cells+'</tr>';
+  }).join('');
+  return '<div class="gridwrap"><table class="grid"><thead>'+header+'</thead><tbody>'+body+'</tbody></table></div>';
+}
+
+function getActiveColumn(sc){
+  sc.columns = sc.columns || [];
+  if(sc.currentColumnId){
+    const existing = sc.columns.find(c=>c.id===sc.currentColumnId);
+    if(existing) return existing;
+  }
+  const today = todayISO();
+  const countToday = sc.columns.filter(c=>c.date===today).length;
+  const col = {id:uid(), date:today, label: fmtDate(today)+' • Tur '+(countToday+1), values:{}};
+  sc.columns.push(col);
+  sc.currentColumnId = col.id;
+  return col;
+}
+
+function speakName(name){
+  try{
+    if(!('speechSynthesis' in window)) return;
+    const u = new SpeechSynthesisUtterance(name);
+    u.lang = 'tr-TR';
+    speechSynthesis.cancel();
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+function wireGridCells(cls, sc, students, root){
+  root.querySelectorAll('[data-cell]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const sid = btn.getAttribute('data-cell');
+      const scope = btn.getAttribute('data-scope');
+      const values = getScopeValues(sc, scope);
+      values[sid] = nextValue(values[sid]);
+      btn.className = 'cellbtn '+cellClass(values[sid]);
+      btn.textContent = cellSymbol(values[sid]);
+      scheduleSave();
+    });
+  });
+  root.querySelectorAll('[data-bulk]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const val = btn.getAttribute('data-bulk');
+      const scope = btn.getAttribute('data-scope');
+      const values = getScopeValues(sc, scope);
+      students.forEach(s=>{ values[s.id]=val; });
+      scheduleSave();
+      go('classPanel',{classId:cls.id,tab:ctx.tab});
+    });
+  });
+  root.querySelectorAll('[data-score]').forEach(inp=>{
+    inp.addEventListener('change', ()=>{
+      const sid = inp.getAttribute('data-score');
+      const scope = inp.getAttribute('data-scope');
+      const values = getScopeValues(sc, scope);
+      values[sid] = inp.value.trim();
+      scheduleSave();
+    });
+  });
+}
+
+function participationDetailsHtml(sc, students){
+  sc.calledIds = sc.calledIds || [];
+  const activeCol = (sc.columns||[]).find(c=>c.id===sc.currentColumnId);
+  const calledCount = sc.calledIds.filter(id=>students.some(s=>s.id===id)).length;
+  const total = students.length;
+  const rows = students.map(s=>{
+    const called = sc.calledIds.includes(s.id);
+    const v = activeCol ? (activeCol.values||{})[s.id] : null;
+    return '<tr><td>'+esc(s.name)+'</td><td style="text-align:center;">'+
+      '<button class="cellbtn '+(called?cellClass(v||'+'):'')+'" data-activecell="'+s.id+'" data-scaleid="'+sc.id+'">'+(called?cellSymbol(v||'+'):'—')+'</button></td>'+
+      '<td><button class="ghost small" data-manualpick="'+sc.id+'" data-studentid="'+s.id+'">Seç</button></td></tr>';
+  }).join('');
+  const todayCount = (sc.columns||[]).filter(c=>c.date===todayISO()).length;
+  const pastCols = (sc.columns||[]).filter(c=>c.id!==sc.currentColumnId);
+  let inner =
+    scaleRenameHtml(sc) +
+    '<p class="muted">Bu tur: '+calledCount+' / '+total+' öğrenci kalktı.'+(todayCount>1?' (Bugün '+todayCount+'. tur)':'')+'</p>'+
+    '<div class="row"><button data-pick="'+sc.id+'">🎲 Rastgele öğrenci seç</button>'+
+    '<button class="ghost" data-resetcycle="'+sc.id+'">Turu sıfırla</button></div>'+
+    '<div id="picked-area-'+sc.id+'" style="margin-top:.7rem;"></div>'+
+    '<h3 style="font-size:.9rem;margin:1rem 0 .4rem;">Öğrenciler (bu tur — hücreye dokunarak düzelt)</h3>'+
+    '<div class="gridwrap"><table class="grid"><tbody>'+rows+'</tbody></table></div>'+
+    (pastCols.length ? '<details style="margin-top:.8rem;"><summary><span>Geçmiş turları düzelt</span><span class="muted">'+pastCols.length+' kayıt</span></summary><div class="inner">'+scaleGridWideHtml({id:sc.id, type:'addable_pm', columns:pastCols}, students)+'</div></details>' : '');
+  return '<details data-scaleid="'+sc.id+'" '+(openScales[sc.id]?'open':'')+'><summary><span>'+esc(sc.name)+'</span><span class="pill">Katılım</span></summary>'+
+    '<div class="inner" id="scale-'+sc.id+'">'+inner+
+    '<div style="margin-top:.7rem;"><button class="danger small" data-delscale="'+sc.id+'">Ölçeği sil</button></div>'+
+    '</div></details>';
+}
+
+let pendingPick = {};
+
+function wireParticipation(cls, sc, students){
+  const root = document.getElementById('scale-'+sc.id);
+  if(!root) return;
+  wireScaleRename(cls, sc);
+  wireGridCells(cls, sc, students, root);
+  root.querySelectorAll('[data-delcol]').forEach(btn=>{
+    btn.addEventListener('click', async (ev)=>{
+      ev.preventDefault();
+      if(!confirm('Bu geçmiş turu tamamen silmek istediğine emin misin?')) return;
+      const colId = btn.getAttribute('data-colid');
+      sc.columns = (sc.columns||[]).filter(c=>c.id!==colId);
+      await saveDataNow();
+      go('classPanel',{classId:cls.id,tab:'scales'});
+    });
+  });
+
+  root.querySelectorAll('[data-activecell]').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      const sid = btn.getAttribute('data-studentid') || btn.getAttribute('data-activecell');
+      const col = getActiveColumn(sc);
+      col.values[sid] = nextValue(col.values[sid]);
+      sc.calledIds = sc.calledIds || [];
+      if(col.values[sid]===''){
+        sc.calledIds = sc.calledIds.filter(x=>x!==sid);
+      } else if(!sc.calledIds.includes(sid)){
+        sc.calledIds.push(sid);
+      }
+      await saveDataNow();
+      go('classPanel',{classId:cls.id,tab:'scales'});
+    });
+  });
+
+  function showPicked(student, freshCycle){
+    const area = document.getElementById('picked-area-'+sc.id);
+    if(!area) return;
+    area.innerHTML =
+      (freshCycle ? '<p class="muted">🔄 Herkes kalktı, yeni tur başladı.</p>' : '')+
+      '<div class="card" style="text-align:center;">'+
+      '<div style="font-family:Georgia,serif;font-size:1.3rem;margin-bottom:.7rem;">'+esc(student.name)+'</div>'+
+      '<div class="row" style="justify-content:center;">'+
+      '<button data-mark="+">+</button>'+
+      '<button class="ghost" data-mark="~">½</button>'+
+      '<button class="danger" data-mark="-">−</button>'+
+      '</div></div>';
+    area.querySelectorAll('[data-mark]').forEach(mb=>{
+      mb.addEventListener('click', async ()=>{
+        const mark = mb.getAttribute('data-mark');
+        const sid = pendingPick[sc.id];
+        if(!sid) return;
+        const col = getActiveColumn(sc);
+        col.values[sid] = mark;
+        sc.calledIds = sc.calledIds || [];
+        if(!sc.calledIds.includes(sid)) sc.calledIds.push(sid);
+        delete pendingPick[sc.id];
+        await saveDataNow();
+        go('classPanel',{classId:cls.id,tab:'scales'});
+      });
+    });
+  }
+
+  const pickBtn = root.querySelector('[data-pick="'+sc.id+'"]');
+  if(pickBtn) pickBtn.addEventListener('click', ()=>{
+    sc.calledIds = sc.calledIds || [];
+    let remaining = students.filter(s=>!sc.calledIds.includes(s.id));
+    let freshCycle = false;
+    if(remaining.length===0 && students.length>0){ sc.calledIds = []; sc.currentColumnId = null; remaining = students.slice(); freshCycle = true; }
+    if(remaining.length===0) return;
+    const picked = remaining[Math.floor(Math.random()*remaining.length)];
+    pendingPick[sc.id] = picked.id;
+    speakName(picked.name);
+    showPicked(picked, freshCycle);
+  });
+  const resetBtn = root.querySelector('[data-resetcycle="'+sc.id+'"]');
+  if(resetBtn) resetBtn.addEventListener('click', async ()=>{
+    if(!confirm('Turu sıfırlamak istediğine emin misin? Herkes tekrar seçilebilir olacak.')) return;
+    sc.calledIds = [];
+    sc.currentColumnId = null;
+    delete pendingPick[sc.id];
+    await saveDataNow();
+    go('classPanel',{classId:cls.id,tab:'scales'});
+  });
+  root.querySelectorAll('[data-manualpick]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const sid = btn.getAttribute('data-studentid');
+      const student = students.find(s=>s.id===sid);
+      if(!student) return;
+      pendingPick[sc.id] = sid;
+      speakName(student.name);
+      showPicked(student, false);
+    });
+  });
+  const delBtn = root.querySelector('[data-delscale]');
+  if(delBtn) delBtn.addEventListener('click', async ()=>{
+    if(!confirm('Bu ölçeği ve tüm verilerini silmek istediğine emin misin?')) return;
+    delete cls.scales[sc.id];
+    await saveDataNow();
+    go('classPanel',{classId:cls.id,tab:'scales'});
+  });
+}
+
+function scaleRenameHtml(sc){
+  return '<div class="row" style="margin-bottom:.6rem;"><input type="text" id="rename-'+sc.id+'" value="'+esc(sc.name)+'"><button class="ghost small" data-renamescale="'+sc.id+'">Adı kaydet</button></div>';
+}
+function wireScaleRename(cls, sc){
+  const root = document.getElementById('scale-'+sc.id);
+  if(!root) return;
+  const btn = root.querySelector('[data-renamescale="'+sc.id+'"]');
+  if(!btn) return;
+  btn.addEventListener('click', async ()=>{
+    const inp = document.getElementById('rename-'+sc.id);
+    const newName = inp.value.trim();
+    if(!newName) return;
+    sc.name = newName;
+    await saveDataNow();
+    go('classPanel',{classId:cls.id,tab:'scales'});
+  });
+}
+
+function scaleDetailsHtml(sc, students){
+  if(sc.type==='participation') return participationDetailsHtml(sc, students);
+  const typeLabel = sc.type==='addable_pm'?'+/-':'Puan';
+  let inner = scaleRenameHtml(sc);
+  inner += '<div class="row" style="margin-bottom:.6rem;"><input type="text" id="colname-'+sc.id+'" placeholder="Sütun adı (örn: 12 Eylül)"><button class="ghost small" data-addcol="'+sc.id+'">Sütun ekle</button></div>';
+  inner += scaleGridWideHtml(sc, students);
+  return '<details data-scaleid="'+sc.id+'" '+(openScales[sc.id]?'open':'')+'><summary><span>'+esc(sc.name)+'</span><span class="pill">'+typeLabel+'</span></summary>'+
+    '<div class="inner" id="scale-'+sc.id+'">'+inner+
+    '<div style="margin-top:.7rem;"><button class="danger small" data-delscale="'+sc.id+'">Ölçeği sil</button></div>'+
+    '</div></details>';
+}
+
+function wireScale(cls, scaleId, students){
+  const sc = cls.scales[scaleId];
+  if(sc.type==='participation'){ wireParticipation(cls, sc, students); return; }
+  wireScaleRename(cls, sc);
+  const root = document.getElementById('scale-'+scaleId);
+  if(!root) return;
+
+  wireGridCells(cls, sc, students, root);
+  const addColBtn = root.querySelector('[data-addcol="'+scaleId+'"]');
+  if(addColBtn){
+    addColBtn.addEventListener('click', async ()=>{
+      const inp = document.getElementById('colname-'+scaleId);
+      const label = inp.value.trim();
+      if(!label) return;
+      sc.columns = sc.columns||[];
+      sc.columns.push({id:uid(), label, values:{}});
+      await saveDataNow();
+      go('classPanel',{classId:cls.id,tab:'scales'});
+    });
+  }
+  root.querySelectorAll('[data-delcol]').forEach(btn=>{
+    btn.addEventListener('click', async (ev)=>{
+      ev.preventDefault();
+      if(!confirm('Bu sütunu silmek istediğine emin misin?')) return;
+      const sid = btn.getAttribute('data-delcol');
+      const colId = btn.getAttribute('data-colid');
+      const target = cls.scales[sid];
+      target.columns = (target.columns||[]).filter(c=>c.id!==colId);
+      await saveDataNow();
+      go('classPanel',{classId:cls.id,tab:'scales'});
+    });
+  });
+  const delScaleBtn = root.querySelector('[data-delscale]');
+  if(delScaleBtn){
+    delScaleBtn.addEventListener('click', async ()=>{
+      if(!confirm('Bu ölçeği ve tüm verilerini silmek istediğine emin misin?')) return;
+      delete cls.scales[scaleId];
+      await saveDataNow();
+      go('classPanel',{classId:cls.id,tab:'scales'});
+    });
+  }
+}
+
+function getScopeValues(sc, scope){
+  const [sid, colId] = scope.split(':');
+  const col = (sc.columns||[]).find(c=>c.id===colId);
+  col.values = col.values || {};
+  return col.values;
+}
+
+/* ---------- STUDENT SIDE ---------- */
+function renderStudentLogin(app){
+  const classes = Object.values(DATA.classes);
+  app.innerHTML = header('Öğrenci girişi') + '<button class="backline" id="back">← Geri</button>'+
+    '<div class="card">'+
+    (classes.length ?
+      '<label style="margin-top:0;">Şifreni gir</label>'+
+      '<input type="text" id="s-pw-only" inputmode="text" autocapitalize="characters" autocomplete="off" style="text-transform:uppercase;letter-spacing:.1em;font-size:1.1rem;text-align:center;" placeholder="ŞİFREN">'+
+      '<p class="err" id="s-err" style="display:none;"></p>'+
+      '<div style="margin-top:.7rem;"><button id="s-go">Giriş yap</button></div>'
+      : '<p class="muted">Henüz sınıf tanımlanmadı.</p>')+
+    '</div>';
+  document.getElementById('back').onclick=()=>go('landing');
+  if(!classes.length) return;
+  const tryLogin=()=>{
+    const pw = document.getElementById('s-pw-only').value.trim().toUpperCase();
+    const errEl = document.getElementById('s-err');
+    errEl.style.display='none';
+    if(!pw){ errEl.textContent='Şifreni gir.'; errEl.style.display='block'; return; }
+    let found = null;
+    for(const cls of classes){
+      for(const st of Object.values(cls.students)){
+        if(st.password === pw){ found = {classId:cls.id, studentId:st.id}; break; }
+      }
+      if(found) break;
+    }
+    if(!found){ errEl.textContent='Böyle bir şifre bulunamadı. Kontrol edip tekrar dene.'; errEl.style.display='block'; return; }
+    go('studentView', found);
+  };
+  document.getElementById('s-go').onclick=tryLogin;
+  document.getElementById('s-pw-only').addEventListener('keydown',e=>{if(e.key==='Enter')tryLogin();});
+}
+
+function renderStudentView(app){
+  const cls = DATA.classes[ctx.classId];
+  const st = cls && cls.students[ctx.studentId];
+  if(!cls || !st){ go('landing'); return; }
+  const scales = Object.values(cls.scales);
+  let sections = '';
+  scales.forEach(sc=>{
+    const scPct = scaleStudentPercent(sc, st.id);
+    sections += '<h2 class="section">'+esc(sc.name)+(scPct!=null?' <span class="pill">%'+Math.round(scPct)+' başarı</span>':'')+'</h2>';
+    {
+      const cols=(sc.columns||[]).slice().reverse();
+      const rows = cols.filter(c=>(c.values||{})[st.id]!=null && (c.values||{})[st.id]!=='');
+      if(!rows.length) sections += '<div class="empty">Henüz kayıt yok.</div>';
+      else rows.forEach(c=>{
+        const v = c.values[st.id];
+        if(sc.type==='addable_score'){
+          sections += '<div class="entry-row"><span>'+esc(c.label)+'</span><strong>'+esc(v)+'</strong></div>';
+        } else {
+          sections += '<div class="entry-row '+(v==='-'?'neg':v==='~'?'half':'')+'"><span>'+esc(c.label)+'</span><strong style="font-size:1.15rem;">'+cellSymbol(v)+'</strong></div>';
+        }
+      });
+    }
+  });
+  const assignments = (cls.assignments||[]).slice().sort((a,b)=>b.date.localeCompare(a.date));
+  let hwSection = '<h2 class="section">Verilen ödevler</h2>' +
+    (assignments.length ? assignments.map(it=>'<div class="card" style="padding:.7rem .9rem;margin-bottom:.5rem;">'+
+      '<div style="display:flex;justify-content:space-between;gap:.5rem;"><strong>'+esc(fmtDate(it.date))+'</strong>'+
+      (it.link ? '<a href="'+esc(it.link)+'" target="_blank" rel="noopener"><button class="ghost small">📄 Dosyayı aç</button></a>' : '')+
+      '</div><p style="margin:.3rem 0 0;">'+esc(it.text)+'</p></div>').join('') : '<div class="empty">Henüz ödev girilmedi.</div>');
+  app.innerHTML = header('Merhaba, '+st.name, cls.name) +
+    '<button class="backline" id="back">← Çıkış yap</button>'+
+    (st.note ? '<div class="card"><label style="margin-top:0;">Öğretmen notu</label><p style="margin:0;">'+esc(st.note)+'</p></div>' : '') +
+    hwSection +
+    (scales.length ? sections : '<div class="empty">Henüz ölçek tanımlanmadı.</div>') +
+    (cls.isHomeroom ? '<div id="books-section"></div>' : '');
+  document.getElementById('back').onclick=()=>go('landing');
+  if(cls.isHomeroom) renderMyBooksSection(st);
+}
+
+function renderMyBooksSection(st){
+  const area = document.getElementById('books-section');
+  if(!area) return;
+  if(myReadingLogCache[st.id]){
+    renderMyBooksContent(area, st, myReadingLogCache[st.id]);
+    return;
+  }
+  area.innerHTML = '<h2 class="section">Okuduğum kitaplar</h2><div class="loading">Yükleniyor…</div>';
+  fetchStudentReadingLog(st.id).then(entries=>{
+    myReadingLogCache[st.id] = entries;
+    if(view==='studentView' && ctx.studentId===st.id) renderMyBooksSection(st);
+  });
+}
+
+function renderMyBooksContent(area, st, entries){
+  const books = entries.filter(e=>!e.deleted).slice().sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+  const totalPages = books.reduce((sum,b)=>sum+(parseInt(b.pages)||0),0);
+  area.innerHTML =
+    '<h2 class="section">Okuduğum kitaplar</h2>'+
+    '<p class="muted">Toplam '+books.length+' kitap · '+totalPages+' sayfa</p>'+
+    (books.length ? books.map(b=>'<div class="list-row" id="mybkrow-'+b.id+'"><span>'+esc(b.title)+' <span class="muted">('+esc(b.pages)+' sayfa)</span></span>'+
+      '<span class="row" style="flex:0;gap:.4rem;"><button class="ghost small" data-myeditbk="'+b.id+'">Düzenle</button><button class="danger small" data-mydelbk="'+b.id+'">Sil</button></span></div>').join('') : '<div class="empty">Henüz kitap eklemedin.</div>')+
+    '<div class="card" style="margin-top:.8rem;"><label style="margin-top:0;">Yeni kitap ekle</label>'+
+    '<input type="text" id="mybk-title" placeholder="Kitap adı">'+
+    '<label>Sayfa sayısı</label><input type="text" id="mybk-pages" inputmode="numeric" placeholder="Örn: 150">'+
+    '<p class="err" id="mybk-err" style="display:none;"></p>'+
+    '<div style="margin-top:.6rem;"><button id="mybk-add">Ekle</button></div></div>';
+  document.getElementById('mybk-add').onclick=async ()=>{
+    const title=document.getElementById('mybk-title').value.trim();
+    const pages=document.getElementById('mybk-pages').value.trim();
+    const errEl=document.getElementById('mybk-err');
+    if(!title||!pages){ errEl.textContent='Kitap adı ve sayfa sayısı gir.'; errEl.style.display='block'; return; }
+    try{
+      await readingLogCollection().add({classId:ctx.classId, studentId:st.id, title, pages, date: todayISO(), addedBy:'student', pass: st.password});
+      delete myReadingLogCache[st.id];
+      renderMyBooksSection(st);
+    }catch(e){
+      errEl.textContent='Kaydedilemedi, tekrar dene.';
+      errEl.style.display='block';
+    }
+  };
+  area.querySelectorAll('[data-mydelbk]').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      if(!confirm('Bu kitabı silmek istediğine emin misin?')) return;
+      const id = btn.getAttribute('data-mydelbk');
+      try{
+        await readingLogCollection().doc(id).update({deleted:true, pass: st.password});
+        delete myReadingLogCache[st.id];
+        renderMyBooksSection(st);
+      }catch(e){ alert('Silinemedi, tekrar dene.'); }
+    });
+  });
+  area.querySelectorAll('[data-myeditbk]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const id = btn.getAttribute('data-myeditbk');
+      const entry = entries.find(e=>e.id===id);
+      if(!entry) return;
+      const row = document.getElementById('mybkrow-'+id);
+      row.innerHTML = '<div class="row" style="width:100%;">'+
+        '<input type="text" id="emybk-title-'+id+'" value="'+esc(entry.title)+'">'+
+        '<input type="text" id="emybk-pages-'+id+'" value="'+esc(entry.pages)+'" style="max-width:5rem;">'+
+        '<button class="ghost small" id="emybk-save-'+id+'">Kaydet</button>'+
+        '</div>';
+      document.getElementById('emybk-save-'+id).onclick=async ()=>{
+        const title=document.getElementById('emybk-title-'+id).value.trim();
+        const pages=document.getElementById('emybk-pages-'+id).value.trim();
+        if(!title||!pages) return;
+        try{
+          await readingLogCollection().doc(id).update({title, pages, pass: st.password});
+          delete myReadingLogCache[st.id];
+          renderMyBooksSection(st);
+        }catch(e){ alert('Kaydedilemedi.'); }
+      };
+    });
+  });
+}
+
+/* ==== Ana ekrana ekleme (PWA) ==== */
+let deferredInstallPrompt = null;
+let installBannerDismissed = false;
+window.addEventListener('beforeinstallprompt', (e)=>{
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  renderInstallBanner();
+});
+window.addEventListener('appinstalled', ()=>{
+  deferredInstallPrompt = null;
+  const el = document.getElementById('install-banner');
+  if(el) el.remove();
+});
+window.addEventListener('load', ()=>{
+  setTimeout(()=>{
+    if(!deferredInstallPrompt && !installBannerDismissed && !document.getElementById('install-banner')){
+      renderInstallBanner(true);
+    }
+  }, 2500);
+});
+function isIos(){
+  return /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
+}
+function isStandalone(){
+  return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+}
+function renderInstallBanner(genericFallback){
+  if(installBannerDismissed || isStandalone()) return;
+  const app = document.getElementById('app');
+  if(!app || document.getElementById('install-banner')) return;
+  let html = '';
+  if(deferredInstallPrompt){
+    html = '<div id="install-banner" class="card" style="display:flex;justify-content:space-between;align-items:center;gap:.6rem;">'+
+      '<span>📲 Bu sayfayı ana ekranına ekleyebilirsin.</span>'+
+      '<span class="row" style="flex:0;gap:.4rem;"><button class="small" id="install-yes">Ekle</button><button class="ghost small" id="install-no">×</button></span></div>';
+  } else if(isIos()){
+    html = '<div id="install-banner" class="card" style="display:flex;justify-content:space-between;align-items:center;gap:.6rem;">'+
+      '<span>📲 Ana ekrana eklemek için: alttaki paylaş simgesine (□↑) dokun → "Ana Ekrana Ekle".</span>'+
+      '<button class="ghost small" id="install-no">×</button></div>';
+  } else if(genericFallback){
+    html = '<div id="install-banner" class="card" style="display:flex;justify-content:space-between;align-items:center;gap:.6rem;">'+
+      '<span>📲 Ana ekrana eklemek için tarayıcı menüsünden (⋮ veya ☰) "Ekle" → "Ana ekrana ekle" seçeneğini kullan.</span>'+
+      '<button class="ghost small" id="install-no">×</button></div>';
+  } else {
+    return;
+  }
+  app.insertAdjacentHTML('afterbegin', html);
+  const yesBtn = document.getElementById('install-yes');
+  if(yesBtn) yesBtn.onclick = async ()=>{
+    const el = document.getElementById('install-banner');
+    if(el) el.remove();
+    if(deferredInstallPrompt){ deferredInstallPrompt.prompt(); await deferredInstallPrompt.userChoice; deferredInstallPrompt = null; }
+  };
+  const noBtn = document.getElementById('install-no');
+  if(noBtn) noBtn.onclick = ()=>{ installBannerDismissed = true; const el=document.getElementById('install-banner'); if(el) el.remove(); };
+}
+
+init();
+</script>
+</body>
+</html>
