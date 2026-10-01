@@ -466,6 +466,7 @@ function getScheduleDay(dayKey, periods){
   while(DATA.schedule[dayKey].length < periods) DATA.schedule[dayKey].push(null);
   return DATA.schedule[dayKey];
 }
+let scheduleCardOpen = false;
 function renderScheduleCard(classes){
   const maxPeriods = Math.max.apply(null, SCHEDULE_DAYS.map(d=>d.periods));
   let rows = '';
@@ -481,10 +482,12 @@ function renderScheduleCard(classes){
     rows += '</tr>';
   }
   const header = '<tr><th></th>'+SCHEDULE_DAYS.map(d=>'<th>'+d.label+'</th>').join('')+'</tr>';
-  return '<div class="card"><label style="margin-top:0;">Ders Programım</label>'+
+  return '<details id="schedule-details" class="card" style="padding:0;" '+(scheduleCardOpen?'open':'')+'>'+
+    '<summary style="padding:.8rem 1rem;cursor:pointer;font-weight:600;list-style:none;">Ders Programım</summary>'+
+    '<div style="padding:0 1rem 1rem;">'+
     '<p class="muted" style="margin-top:0;">Bir hücreye dokundukça sınıflarının arasında dönüyor, "—" boş demek.</p>'+
     '<div class="gridwrap"><table class="grid"><thead>'+header+'</thead><tbody>'+rows+'</tbody></table></div>'+
-    '</div>';
+    '</div></details>';
 }
 function wireScheduleCard(app, classes){
   app.querySelectorAll('[data-sched]').forEach(btn=>{
@@ -519,6 +522,8 @@ function renderTeacherClasses(app){
       : '<div class="empty">Henüz sınıf yok.</div>') ;
   document.getElementById('back').onclick=async ()=>{ try{ await firebase.auth().signOut(); }catch(e){} await enterStudentContext(); };
   wireScheduleCard(app, classes);
+  const schedDetails = document.getElementById('schedule-details');
+  if(schedDetails) schedDetails.addEventListener('toggle', ()=>{ scheduleCardOpen = schedDetails.open; });
   document.getElementById('add-class').onclick=async ()=>{
     const name=document.getElementById('new-class').value.trim();
     const isHomeroom=document.getElementById('new-class-home').checked;
