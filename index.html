@@ -453,10 +453,62 @@ function renderApproveDevice(app){
 }
 
 /* ---------- CLASSES ---------- */
+const SCHEDULE_DAYS = [
+  {key:'pzt', label:'Pzt', periods:8},
+  {key:'sal', label:'Sal', periods:7},
+  {key:'car', label:'Çar', periods:7},
+  {key:'per', label:'Per', periods:7},
+  {key:'cum', label:'Cum', periods:7}
+];
+function getScheduleDay(dayKey, periods){
+  DATA.schedule = DATA.schedule || {};
+  if(!DATA.schedule[dayKey]) DATA.schedule[dayKey] = new Array(periods).fill(null);
+  while(DATA.schedule[dayKey].length < periods) DATA.schedule[dayKey].push(null);
+  return DATA.schedule[dayKey];
+}
+function renderScheduleCard(classes){
+  const maxPeriods = Math.max.apply(null, SCHEDULE_DAYS.map(d=>d.periods));
+  let rows = '';
+  for(let p=0; p<maxPeriods; p++){
+    rows += '<tr><td style="color:var(--ink-soft);font-size:.78rem;">'+(p+1)+'.</td>';
+    SCHEDULE_DAYS.forEach(d=>{
+      if(p >= d.periods){ rows += '<td></td>'; return; }
+      const arr = getScheduleDay(d.key, d.periods);
+      const cid = arr[p];
+      const cls = cid ? classes.find(c=>c.id===cid) : null;
+      rows += '<td><button class="ghost small" data-sched="'+d.key+':'+p+'" style="width:100%;white-space:normal;">'+(cls?esc(cls.name):'—')+'</button></td>';
+    });
+    rows += '</tr>';
+  }
+  const header = '<tr><th></th>'+SCHEDULE_DAYS.map(d=>'<th>'+d.label+'</th>').join('')+'</tr>';
+  return '<div class="card"><label style="margin-top:0;">Ders Programım</label>'+
+    '<p class="muted" style="margin-top:0;">Bir hücreye dokundukça sınıflarının arasında dönüyor, "—" boş demek.</p>'+
+    '<div class="gridwrap"><table class="grid"><thead>'+header+'</thead><tbody>'+rows+'</tbody></table></div>'+
+    '</div>';
+}
+function wireScheduleCard(app, classes){
+  app.querySelectorAll('[data-sched]').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      const [dayKey, pStr] = btn.getAttribute('data-sched').split(':');
+      const p = parseInt(pStr);
+      const dayDef = SCHEDULE_DAYS.find(d=>d.key===dayKey);
+      const arr = getScheduleDay(dayKey, dayDef.periods);
+      const options = [null].concat(classes.map(c=>c.id));
+      const curIdx = options.indexOf(arr[p]);
+      const next = options[(curIdx+1) % options.length];
+      arr[p] = next;
+      const cls = next ? classes.find(c=>c.id===next) : null;
+      btn.textContent = cls ? cls.name : '—';
+      scheduleSave();
+    });
+  });
+}
+
 function renderTeacherClasses(app){
   const classes = Object.values(DATA.classes).sort((a,b)=>a.name.localeCompare(b.name,'tr'));
   app.innerHTML = header('Sınıflarım') +
     '<button class="backline" id="back">← Çıkış yap</button>'+
+    renderScheduleCard(classes) +
     '<div class="card"><label>Yeni sınıf adı</label>'+
     '<div class="row"><input type="text" id="new-class" placeholder="Örn: 5-A Matematik"><button id="add-class">Ekle</button></div>'+
     '<label style="display:flex;align-items:center;gap:.4rem;margin-top:.6rem;"><input type="checkbox" id="new-class-home" style="width:auto;"> Bu benim sınıf öğretmeni olduğum sınıfım (kitap okuma modülü açılsın)</label>'+
@@ -466,6 +518,7 @@ function renderTeacherClasses(app){
       '<span class="row" style="flex:0;gap:.4rem;"><button class="ghost small" data-open="'+c.id+'">Aç</button><button class="danger small" data-del="'+c.id+'">Sil</button></span></div>').join('')
       : '<div class="empty">Henüz sınıf yok.</div>') ;
   document.getElementById('back').onclick=async ()=>{ try{ await firebase.auth().signOut(); }catch(e){} await enterStudentContext(); };
+  wireScheduleCard(app, classes);
   document.getElementById('add-class').onclick=async ()=>{
     const name=document.getElementById('new-class').value.trim();
     const isHomeroom=document.getElementById('new-class-home').checked;
