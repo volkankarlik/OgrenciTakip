@@ -28,9 +28,9 @@ jobs:
         run: |
           npx cap add android
 
-      - name: Sync Capacitor
+      - name: Update Capacitor
         run: |
-          npx cap sync android
+          npx cap update android
 
       - name: Setup Java
         uses: actions/setup-java@v3
@@ -49,4 +49,3 @@ jobs:
         with:
           name: volkanhoca-ogrenci-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
-
