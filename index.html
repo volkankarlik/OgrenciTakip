@@ -291,9 +291,22 @@ function attachSecretTap(el, callback){
 function go(v,c){ view=v; ctx=c||{}; render(); }
 function header(title, sub){
   return '<header class="top"><div><h1>'+esc(title)+'</h1>'+(sub?'<p>'+esc(sub)+'</p>':'')+'</div>'+
+    '<span style="display:flex;align-items:center;gap:.5rem;">'+
     (saveStatusText ? '<span id="save-status">'+esc(saveStatusText)+'</span>' : '<span id="save-status"></span>') +
-    '</header>';
+    ((view==='teacherClasses'||view==='classPanel') ? '<button class="ghost small" id="teacher-refresh">↻ Yenile</button>' : '')+
+    '</span></header>';
 }
+document.addEventListener('click', async (ev)=>{
+  const btn = ev.target && ev.target.closest ? ev.target.closest('#teacher-refresh') : null;
+  if(!btn) return;
+  btn.disabled = true; btn.textContent = 'Yenileniyor…';
+  try{
+    if(saveTimer){ clearTimeout(saveTimer); saveTimer = null; await saveDataNow(); }
+    await loadTeacherData(CURRENT_UID);
+    migrateData();
+  }catch(e){}
+  render();
+});
 function render(){
   const app = document.getElementById('app');
   if(view==='noTeacherLink') renderNoTeacherLink(app);
