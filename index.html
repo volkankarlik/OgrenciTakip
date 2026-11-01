@@ -770,6 +770,7 @@ function exportPasswordsPDF(cls){
       '<div class="slip-title">Öğrenci Takip Sistemi Girişi</div>'+
       '<div class="slip-row"><span class="lbl">Site:</span> '+esc(SITE_URL_PRIMARY)+'</div>'+
       '<div class="slip-row muted">Açılmazsa yedek: '+esc(SITE_URL_BACKUP)+'</div>'+
+      '<div class="slip-row muted">Android: sitedeki “Uygulamayı indir” butonu</div>'+
       '<div class="slip-row"><span class="lbl">Öğrenci:</span> '+esc(s.name)+'</div>'+
       '<div class="slip-row"><span class="lbl">Şifre:</span> <strong>'+esc(s.password)+'</strong></div>'+
     '</div>'
@@ -1640,11 +1641,21 @@ function renderStudentView(app){
       '</div><p style="margin:.3rem 0 0;">'+esc(it.text)+'</p></div>').join('') : '<div class="empty">Henüz ödev girilmedi.</div>');
   app.innerHTML = header('Merhaba, '+st.name, cls.name) +
     '<button class="backline" id="back">← Çıkış yap</button>'+
+    '<div style="text-align:right;margin:-.2rem 0 .6rem;"><button class="ghost small" id="refresh-data">↻ Yenile</button></div>'+
     (st.note ? '<div class="card"><label style="margin-top:0;">Öğretmen notu</label><p style="margin:0;">'+esc(st.note)+'</p></div>' : '') +
     hwSection +
     (scales.length ? sections : '<div class="empty">Henüz ölçek tanımlanmadı.</div>') +
     (cls.isHomeroom ? '<div id="books-section"></div>' : '');
   document.getElementById('back').onclick=()=>go('landing');
+  document.getElementById('refresh-data').onclick=async (ev)=>{
+    const btn = ev.currentTarget;
+    btn.disabled = true; btn.textContent = 'Yenileniyor…';
+    try{
+      await loadPublicData(CURRENT_UID);
+      try{ for(const k in myReadingLogCache) delete myReadingLogCache[k]; }catch(e){}
+    }catch(e){}
+    render();
+  };
   if(cls.isHomeroom) renderMyBooksSection(st);
 }
 
@@ -1745,6 +1756,9 @@ window.addEventListener('load', ()=>{
     }
   }, 2500);
 });
+const APK_DRIVE_ID = "17YtGD0drtSvjwErnvHGy_6lHQh20wIGP";  // Drive dosya ID'si buraya (boşsa Android'de indirme butonu çıkmaz)
+function isAndroid(){ return /android/i.test(navigator.userAgent); }
+function isAndroidWebView(){ return /; wv\)/.test(navigator.userAgent) || /Android.*Version\/4\.0/.test(navigator.userAgent); }
 function isIos(){
   return /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
 }
@@ -1755,6 +1769,16 @@ function renderInstallBanner(genericFallback){
   if(installBannerDismissed || isStandalone()) return;
   const app = document.getElementById('app');
   if(!app || document.getElementById('install-banner')) return;
+  if(isAndroid()){
+    if(isAndroidWebView() || !APK_DRIVE_ID) return;
+    app.insertAdjacentHTML('afterbegin',
+      '<div id="install-banner" class="card" style="display:flex;justify-content:space-between;align-items:center;gap:.6rem;">'+
+      '<span>📲 Uygulamayı indirebilirsiniz.</span>'+
+      '<span class="row" style="flex:0;gap:.4rem;"><a href="https://drive.google.com/uc?export=download&id='+APK_DRIVE_ID+'"><button class="small">İndir</button></a><button class="ghost small" id="install-no">×</button></span></div>');
+    const nb = document.getElementById('install-no');
+    if(nb) nb.onclick = ()=>{ installBannerDismissed = true; const el=document.getElementById('install-banner'); if(el) el.remove(); };
+    return;
+  }
   let html = '';
   if(deferredInstallPrompt){
     html = '<div id="install-banner" class="card" style="display:flex;justify-content:space-between;align-items:center;gap:.6rem;">'+
