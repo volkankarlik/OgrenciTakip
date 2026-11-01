@@ -231,6 +231,7 @@ jobs:
       - name: Release olarak yayinla
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
         run: |
           gh release delete son-surum --yes --cleanup-tag || true
-          gh release create son-surum veli-takip.apk --title "Veli uygulaması (son sürüm)" --notes "APK dosyasını indirip telefona kurabilirsiniz."
+          gh release create son-surum veli-takip.apk --target ${{ github.sha }} --title "Veli uygulaması (son sürüm)" --notes "APK dosyasını indirip telefona kurabilirsiniz."
