@@ -97,6 +97,8 @@
   button.pgchip.on{background:var(--pen);border-color:var(--pen);color:#fff;}
   .pgwrap{display:flex;flex-wrap:wrap;}
   .pill{display:inline-block;font-size:.76rem;font-weight:600;padding:.1rem .55rem;border-radius:20px;background:var(--good-bg);color:var(--good);vertical-align:middle;}
+  .pill.p-warn{background:var(--warn-bg);color:var(--warn);}
+  .pill.p-bad{background:var(--bad-bg);color:var(--bad);}
   .entry-row{display:flex;justify-content:space-between;border-left:3px solid var(--good);padding:.4rem .7rem;margin-bottom:.4rem;font-size:.93rem;background:#fff;border-radius:0 10px 10px 0;}
   .entry-row.neg{border-left-color:var(--bad);}
   .entry-row.half{border-left-color:var(--warn);}
@@ -125,6 +127,30 @@
   .scard .bar i{display:block;height:100%;border-radius:9px;}
   .c-good{color:var(--good);} .c-warn{color:var(--warn);} .c-bad{color:var(--bad);} .c-none{color:var(--ink-soft);}
   .bg-good{background:var(--good);} .bg-warn{background:#E9A21C;} .bg-bad{background:var(--bad);}
+  .spills{display:flex;gap:.5rem;overflow-x:auto;padding:.1rem .05rem .7rem;margin-bottom:.2rem;scrollbar-width:none;}
+  .spills::-webkit-scrollbar{display:none;}
+  button.spill{flex:0 0 auto;display:flex;align-items:baseline;gap:.4rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:.55rem 1rem;font-weight:600;font-size:.95rem;box-shadow:var(--shadow);}
+  button.spill small{font-size:.76rem;font-weight:700;color:var(--ink-soft);}
+  button.spill.active{background:var(--pen);border-color:var(--pen);color:#fff;}
+  button.spill.active small{color:rgba(255,255,255,.85);}
+  .scale-single > details{border:none;background:none;box-shadow:none;margin:0;}
+  .scale-single > details > summary{display:none;}
+  .scale-single > details > .inner{padding:0;}
+  details.tools{margin-top:1rem;box-shadow:none;background:#fff;}
+  details.tools summary{font-weight:500;font-size:.9rem;color:var(--ink-soft);}
+  .classgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.65rem;margin-bottom:.9rem;}
+  .ctile{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:.8rem .85rem .85rem;box-shadow:var(--shadow);cursor:pointer;display:flex;flex-direction:column;gap:.15rem;min-height:6.4rem;}
+  .ctile:active{transform:scale(.985);}
+  .ctile .cbadge{min-width:0;height:auto;padding:.25rem .6rem;border-radius:10px;font-size:1rem;align-self:flex-start;margin-bottom:.3rem;}
+  .ctile strong{font-family:var(--display);font-size:.98rem;font-weight:700;line-height:1.2;}
+  .ctile .muted{font-size:.78rem;}
+  .ctile .cdel{position:absolute;top:.5rem;right:.5rem;width:1.9rem;height:1.9rem;padding:0;border-radius:50%;font-size:1rem;line-height:1;display:flex;align-items:center;justify-content:center;}
+  .ctile .star{position:absolute;bottom:.6rem;right:.7rem;color:var(--warn);font-size:1rem;}
+  .orow{display:flex;align-items:center;gap:.7rem;padding:.5rem .4rem .5rem .7rem;background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:.4rem;user-select:none;-webkit-user-select:none;}
+  .orow .onum{width:1.7rem;text-align:right;color:var(--ink-soft);font-size:.85rem;}
+  .orow .oname{flex:1;font-weight:500;}
+  .orow .ohandle{touch-action:none;cursor:grab;font-size:1.5rem;line-height:1;padding:.35rem .8rem;color:var(--ink-soft);border-radius:10px;background:#F3F6FB;}
+  .orow.dragging{border-color:var(--pen);box-shadow:0 14px 26px -12px rgba(19,32,59,.45);transform:scale(1.02);position:relative;z-index:5;}
   .bulkrow{display:flex;gap:.25rem;justify-content:center;margin-top:.3rem;}
   .bulkrow button{min-width:0;flex:1;padding:.3rem .2rem;}
   .tiles{display:flex;flex-wrap:wrap;gap:.5rem;}
@@ -267,6 +293,7 @@ function genUniquePassword(existingSet){
 }
 function esc(s){ const d=document.createElement('div'); d.innerText = s==null?'':String(s); return d.innerHTML; }
 
+function pillTone(p){ return p==null ? '' : p>=80 ? '' : p>=50 ? ' p-warn' : ' p-bad'; }
 function nextOrder(cls){
   let m = 0;
   Object.values(cls.students||{}).forEach(s=>{ if(typeof s.order==='number' && s.order>m) m = s.order; });
@@ -615,9 +642,14 @@ function renderTeacherClasses(app){
     renderScheduleCard(classes) +
     (tutorUnlocked ? '<div class="card"><div class="row" style="justify-content:space-between;align-items:center;"><span><strong>Özel ders öğrencileri</strong> <span class="muted">'+Object.keys(tutoring().students).length+' öğrenci</span></span><button class="ghost small" id="open-tutor">Aç</button></div></div>' : '')+
     '<h2 class="section">Sınıflar ('+classes.length+')</h2>'+
-    (classes.length ? classes.map(c=>'<div class="classcard" data-cardopen="'+c.id+'"><div class="cbadge">'+esc(String(c.name).split(' ')[0].slice(0,5))+'</div>'+
-      '<div class="cinfo"><strong>'+esc(c.name)+'</strong><span class="muted">'+Object.keys(c.students).length+' öğrenci'+(c.isHomeroom?' · <span class="pill">Kendi sınıfım</span>':'')+'</span></div>'+
-      '<span class="cbtns"><button class="ghost small" data-open="'+c.id+'">Aç</button><button class="danger small" data-del="'+c.id+'">Sil</button></span></div>').join('')
+    (classes.length ? '<div class="classgrid">'+classes.map(c=>{
+      const parts = String(c.name).split(' ');
+      return '<div class="ctile" data-cardopen="'+c.id+'"><button class="danger cdel" data-del="'+c.id+'" title="Sınıfı sil">×</button>'+
+        '<div class="cbadge">'+esc(parts[0].slice(0,6))+'</div>'+
+        '<strong>'+esc(parts.slice(1).join(' ') || c.name)+'</strong>'+
+        '<span class="muted">'+Object.keys(c.students).length+' öğrenci</span>'+
+        (c.isHomeroom ? '<span class="star" title="Kendi sınıfım">★</span>' : '')+'</div>';
+    }).join('')+'</div>'
       : '<div class="empty">Henüz sınıf yok.</div>') +
     '<details><summary><span>＋ Yeni sınıf ekle</span></summary><div class="inner"><label style="margin-top:0;">Yeni sınıf adı</label>'+
     '<div class="row"><input type="text" id="new-class" placeholder="Örn: 5-A Matematik"><button id="add-class">Ekle</button></div>'+
@@ -1029,11 +1061,12 @@ function renderStudentsTab(body, cls){
     '<input type="file" id="pdf-file" accept=".pdf">'+
     '<p class="err" id="pdf-err" style="display:none;"></p>'+
     '<div id="pdf-result"></div></div></details>'+
-    '<details id="order-details"'+(orderPanelOpen?' open':'')+'><summary><span>Sıralamayı düzenle</span><span class="muted">liste yapıştır · ▲▼</span></summary><div class="inner">'+
+    '<details id="order-details"'+(orderPanelOpen?' open':'')+'><summary><span>Sıralamayı düzenle</span><span class="muted">sürükle · liste yapıştır</span></summary><div class="inner">'+
     '<p class="muted" style="margin-top:0;">Okul listendeki sırayla isimleri yapıştır, öğrencileri o sıraya dizeyim:</p>'+
     '<textarea id="order-paste" placeholder="Bir satıra bir isim (e-okul listesinden kopyala)" style="min-height:5rem;"></textarea>'+
     '<div style="margin:.5rem 0 .8rem;"><button id="order-apply">Listeye göre sırala</button></div>'+
-    students.map((st,i)=>'<div class="list-row"><span>'+(i+1)+'. '+esc(st.name)+'</span><span style="display:flex;gap:.3rem;"><button class="ghost small" data-up="'+st.id+'">▲</button><button class="ghost small" data-down="'+st.id+'">▼</button></span></div>').join('')+
+    '<p class="muted" style="margin:0 0 .5rem;">Sağdaki ⠿ tutamacından basılı tutup sürükle:</p>'+
+    '<div id="order-list">'+students.map((st,i)=>'<div class="orow" data-oid="'+st.id+'"><span class="onum">'+(i+1)+'</span><span class="oname">'+esc(st.name)+'</span><span class="ohandle" title="Sürükle">⠿</span></div>').join('')+'</div>'+
     '</div></details>'+
     '<h2 class="section">Öğrenciler ('+students.length+')</h2>'+
     (students.length ? '<div style="margin-bottom:.6rem;"><button class="ghost small" id="export-pdf">Şifre listesini yazdır / PDF indir</button></div>' : '') +
@@ -1119,18 +1152,55 @@ function renderStudentsTab(body, cls){
   };
   const orderDetails = document.getElementById('order-details');
   if(orderDetails) orderDetails.addEventListener('toggle', ()=>{ orderPanelOpen = orderDetails.open; });
-  body.querySelectorAll('[data-up],[data-down]').forEach(b=>b.addEventListener('click', async ()=>{
-    const id = b.getAttribute('data-up') || b.getAttribute('data-down');
-    const dir = b.hasAttribute('data-up') ? -1 : 1;
-    const arr = Object.values(cls.students);
-    arr.forEach((st,k)=>{ st.order = k+1; });
-    const i = arr.findIndex(st=>st.id===id), j = i+dir;
-    if(i<0 || j<0 || j>=arr.length) return;
-    const t = arr[i].order; arr[i].order = arr[j].order; arr[j].order = t;
-    orderPanelOpen = true;
-    await saveDataNow();
-    go('classPanel',{classId:cls.id,tab:'students'});
-  }));
+  const olist = document.getElementById('order-list');
+  if(olist){
+    let drag = null, lastY = 0, timer = null;
+    const rowsOf = ()=>Array.from(olist.querySelectorAll('.orow'));
+    const renumber = ()=>rowsOf().forEach((r,i)=>{ r.querySelector('.onum').textContent = i+1; });
+    const move = ()=>{
+      if(!drag) return;
+      const rows = rowsOf().filter(r=>r!==drag);
+      if(!rows.length) return;
+      const first = rows[0].getBoundingClientRect(), last = rows[rows.length-1].getBoundingClientRect();
+      if(lastY < first.top){ olist.insertBefore(drag, rows[0]); renumber(); return; }
+      if(lastY > last.bottom){ olist.appendChild(drag); renumber(); return; }
+      for(const r of rows){
+        const b = r.getBoundingClientRect();
+        if(lastY>=b.top && lastY<=b.bottom){
+          if(lastY < b.top + b.height/2) olist.insertBefore(drag, r); else olist.insertBefore(drag, r.nextSibling);
+          renumber();
+          break;
+        }
+      }
+    };
+    const onMove = ev=>{ if(drag){ lastY = ev.clientY; move(); ev.preventDefault(); } };
+    const onEnd = async ()=>{
+      if(!drag) return;
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', onEnd);
+      window.removeEventListener('pointercancel', onEnd);
+      clearInterval(timer);
+      drag.classList.remove('dragging'); drag = null;
+      rowsOf().forEach((r,i)=>{ const st = cls.students[r.getAttribute('data-oid')]; if(st) st.order = i+1; });
+      orderPanelOpen = true;
+      await saveDataNow();
+      const y = window.scrollY;
+      go('classPanel',{classId:cls.id,tab:'students'});
+      window.scrollTo(0, y);
+    };
+    olist.querySelectorAll('.ohandle').forEach(h=>h.addEventListener('pointerdown', ev=>{
+      ev.preventDefault();
+      drag = h.closest('.orow'); drag.classList.add('dragging');
+      lastY = ev.clientY;
+      window.addEventListener('pointermove', onMove, {passive:false});
+      window.addEventListener('pointerup', onEnd);
+      window.addEventListener('pointercancel', onEnd);
+      timer = setInterval(()=>{
+        if(lastY < 90) window.scrollBy(0,-14); else if(lastY > window.innerHeight-110) window.scrollBy(0,14); else return;
+        move();
+      }, 16);
+    }));
+  }
   const orderApply = document.getElementById('order-apply');
   if(orderApply) orderApply.onclick = async ()=>{
     const key = t=>String(t||'').toLocaleLowerCase('tr').replace(/[^a-zçğıiöşü ]/g,' ').split(/\s+/).filter(Boolean).sort().join(' ');
@@ -1200,7 +1270,7 @@ function studentPercentHtml(cls, sid){
 }
 function studentRowHtml(s, cls){
   const o = cls ? overallStudentAverage(cls, s.id) : null;
-  return '<details id="srow-'+s.id+'"><summary><span>'+esc(s.name)+(o!=null?' <span class="pill">%'+Math.round(o)+'</span>':'')+'</span><span class="muted" id="visit-info-'+s.id+'">giriş bilgisi yükleniyor…</span></summary>'+
+  return '<details id="srow-'+s.id+'"><summary><span>'+esc(s.name)+(o!=null?' <span class="pill'+pillTone(o)+'">%'+Math.round(o)+'</span>':'')+'</span><span class="muted" id="visit-info-'+s.id+'">giriş bilgisi yükleniyor…</span></summary>'+
     '<div class="inner">'+(cls?studentPercentHtml(cls, s.id):'')+
     '<label style="margin-top:0;">İsim</label>'+
     '<div class="row"><input type="text" data-role="name" data-id="'+s.id+'" value="'+esc(s.name)+'"><button class="ghost small" data-act="save-name" data-id="'+s.id+'">Kaydet</button></div>'+
@@ -1253,11 +1323,26 @@ function wireStudentRow(cls, id){
 }
 
 /* ---------- SCALES / GRID ---------- */
+let selectedScale = {};
+function scaleClassPercent(sc, students){
+  const vals = students.map(st=>scaleStudentPercent(sc, st.id)).filter(v=>v!=null);
+  return average(vals);
+}
 function renderScalesTab(body, cls){
   const scales = Object.values(cls.scales);
   const students = Object.values(cls.students);
+  const sel = cls.scales[selectedScale[cls.id]] ? selectedScale[cls.id] : (scales[0] ? scales[0].id : null);
+  selectedScale[cls.id] = sel;
+  if(sel) openScales[sel] = true;
+  const pills = scales.map(sc=>{
+    const cp = sc.type==='participation' ? null : scaleClassPercent(sc, students);
+    return '<button class="spill'+(sc.id===sel?' active':'')+'" data-selscale="'+sc.id+'">'+esc(sc.name)+(cp!=null?' <small>%'+Math.round(cp)+'</small>':'')+'</button>';
+  }).join('');
   body.innerHTML =
-    '<details'+(scales.length?'':' open')+'><summary><span>＋ Yeni ölçek ekle</span></summary><div class="inner"><label style="margin-top:0;">Ölçek adı</label>'+
+    (students.length===0 ? '<p class="muted">Önce Öğrenciler sekmesinden öğrenci ekle.</p>' : '') +
+    (scales.length ? '<div class="spills">'+pills+'</div>' : '<div class="empty">Henüz ölçek yok. Aşağıdan ilk ölçeğini ekle.</div>')+
+    (sel ? '<div class="scale-single">'+scaleDetailsHtml(cls.scales[sel], students)+'</div>' : '')+
+    '<details style="margin-top:1rem;"'+(scales.length?'':' open')+'><summary><span>＋ Yeni ölçek ekle</span></summary><div class="inner"><label style="margin-top:0;">Ölçek adı</label>'+
     '<div class="row"><input type="text" id="new-scale-name" placeholder="Örn: Ödev, Sözlü, Katılım"></div>'+
     '<label>Tür</label><select id="new-scale-type">'+
       '<option value="addable_pm">+/- ölçeği (istediğin zaman yeni sütun ekle)</option>'+
@@ -1265,10 +1350,11 @@ function renderScalesTab(body, cls){
       '<option value="participation">Derse katılım (rastgele öğrenci seç)</option>'+
     '</select>'+
     '<div style="margin-top:.6rem;"><button id="add-scale">Ölçek ekle</button></div>'+
-    '<p class="err" id="scale-err" style="display:none;"></p></div></details>'+
-    (students.length===0 ? '<p class="muted">Önce Öğrenciler sekmesinden öğrenci ekle.</p>' : '') +
-    '<h2 class="section">Ölçekler ('+scales.length+')</h2>'+
-    (scales.length ? scales.map(sc=>scaleDetailsHtml(sc, students)).join('') : '<div class="empty">Henüz ölçek yok.</div>');
+    '<p class="err" id="scale-err" style="display:none;"></p></div></details>';
+  body.querySelectorAll('[data-selscale]').forEach(b=>b.onclick=()=>{
+    selectedScale[cls.id] = b.getAttribute('data-selscale');
+    go('classPanel',{classId:cls.id,tab:'scales'});
+  });
 
   document.getElementById('add-scale').onclick=async ()=>{
     const name=document.getElementById('new-scale-name').value.trim();
@@ -1282,10 +1368,11 @@ function renderScalesTab(body, cls){
       cls.scales[id]={id,name,type,columns:[{id:uid(), label:'Genel', values:{}}]};
     }
     openScales[id]=true;
+    selectedScale[cls.id]=id;
     await saveDataNow();
     go('classPanel',{classId:cls.id,tab:'scales'});
   };
-  scales.forEach(sc=>wireScale(cls, sc.id, students));
+  if(sel) wireScale(cls, sel, students);
   body.querySelectorAll('details[data-scaleid]').forEach(d=>{
     d.addEventListener('toggle', ()=>{ openScales[d.getAttribute('data-scaleid')] = d.open; });
   });
@@ -1375,7 +1462,7 @@ function scaleGridWideHtml(sc, students){
       return '<td><input class="score-input" type="text" inputmode="decimal" data-score="'+s.id+'" data-scope="'+scope+'" value="'+esc(v)+'"></td>';
     }).join('');
     const sp = scaleStudentPercent(sc, s.id);
-    return '<tr><td>'+esc(s.name)+(sp!=null?' <span class="pill">%'+Math.round(sp)+'</span>':'')+'</td>'+cells+'</tr>';
+    return '<tr><td>'+esc(s.name)+(sp!=null?' <span class="pill'+pillTone(sp)+'">%'+Math.round(sp)+'</span>':'')+'</td>'+cells+'</tr>';
   }).join('');
   return chips+'<div class="gridwrap"><table class="grid"><thead>'+header+'</thead><tbody>'+body+'</tbody></table></div>';
 }
@@ -1511,7 +1598,6 @@ function participationDetailsHtml(sc, students){
   const todayCount = (sc.columns||[]).filter(c=>c.date===todayISO()).length;
   const pastCols = (sc.columns||[]).filter(c=>c.id!==sc.currentColumnId);
   let inner =
-    scaleRenameHtml(sc) +
     '<p class="muted">Bu tur: '+calledCount+' / '+total+' öğrenci kalktı.'+(todayCount>1?' (Bugün '+todayCount+'. tur)':'')+'</p>'+
     (roundDoneNotice[sc.id] ? (delete roundDoneNotice[sc.id], '<p class="muted" style="color:var(--sage);">✅ Herkes kalktı, tur kaydedildi. Yeni tur başladı.</p>') : '')+
     '<div class="row"><button data-pick="'+sc.id+'">🎲 Rastgele öğrenci seç</button>'+
@@ -1525,7 +1611,7 @@ function participationDetailsHtml(sc, students){
     (pastCols.length ? '<details style="margin-top:.8rem;"><summary><span>Geçmiş turları düzelt</span><span class="muted">'+pastCols.length+' kayıt</span></summary><div class="inner">'+scaleGridWideHtml({id:sc.id, type:'addable_pm', columns:pastCols}, students)+'</div></details>' : '');
   return '<details data-scaleid="'+sc.id+'" '+(openScales[sc.id]?'open':'')+'><summary><span>'+esc(sc.name)+'</span><span class="pill">Katılım</span></summary>'+
     '<div class="inner" id="scale-'+sc.id+'">'+inner+
-    '<div style="margin-top:.7rem;"><button class="danger small" data-delscale="'+sc.id+'">Ölçeği sil</button></div>'+
+    '<details class="tools"><summary><span>⚙ Ayarlar</span><span class="muted">ad değiştir · ölçeği sil</span></summary><div class="inner">'+scaleRenameHtml(sc)+'<button class="danger small" data-delscale="'+sc.id+'">Ölçeği sil</button></div></details>'+
     '</div></details>';
 }
 
@@ -1672,12 +1758,11 @@ function wireScaleRename(cls, sc){
 function scaleDetailsHtml(sc, students){
   if(sc.type==='participation') return participationDetailsHtml(sc, students);
   const typeLabel = sc.type==='addable_pm'?'+/-':'Puan';
-  let inner = scaleRenameHtml(sc);
-  inner += '<div class="row" style="margin-bottom:.6rem;"><input type="text" id="colname-'+sc.id+'" placeholder="Sütun adı (örn: 12 Eylül)"><button class="ghost small" data-addcol="'+sc.id+'">Sütun ekle</button></div>';
+  let inner = '<div class="row" style="margin-bottom:.7rem;"><input type="text" id="colname-'+sc.id+'" placeholder="Yeni sütun adı (örn: 12 Eylül)"><button class="small" data-addcol="'+sc.id+'">＋ Sütun ekle</button></div>';
   inner += scaleGridWideHtml(sc, students);
   return '<details data-scaleid="'+sc.id+'" '+(openScales[sc.id]?'open':'')+'><summary><span>'+esc(sc.name)+'</span><span class="pill">'+typeLabel+'</span></summary>'+
     '<div class="inner" id="scale-'+sc.id+'">'+inner+
-    '<div style="margin-top:.7rem;"><button class="danger small" data-delscale="'+sc.id+'">Ölçeği sil</button></div>'+
+    '<details class="tools"><summary><span>⚙ Ayarlar</span><span class="muted">ad değiştir · ölçeği sil</span></summary><div class="inner">'+scaleRenameHtml(sc)+'<button class="danger small" data-delscale="'+sc.id+'">Ölçeği sil</button></div></details>'+
     '</div></details>';
 }
 
