@@ -57,10 +57,10 @@
   .muted{color:var(--ink-soft);font-size:.85rem;}
   .list-row{display:flex;align-items:center;justify-content:space-between;padding:.65rem 0;border-bottom:1px solid var(--line);gap:.6rem;}
   .list-row:last-child{border-bottom:none;}
-  .tabbar{display:flex;gap:.4rem;margin-bottom:1rem;}
-  .tabbar button{flex:1;}
-  .tabbar button.active{background:var(--sage);border-color:var(--sage);}
-  .tabbar button:not(.active){background:#fff;color:var(--ink);border:1px solid var(--line);}
+  .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;justify-content:center;gap:.2rem;background:#fff;border-top:1px solid var(--line);padding:.4rem .5rem calc(.4rem + env(safe-area-inset-bottom));margin:0;}
+  .tabbar button{flex:1;max-width:130px;display:flex;flex-direction:column;align-items:center;gap:.12rem;background:transparent;color:var(--ink-soft);border:none;border-radius:10px;padding:.4rem .2rem;font-size:.72rem;line-height:1.15;}
+  .tabbar button svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .tabbar button.active{background:var(--sage-bg);color:var(--sage);font-weight:600;}
   .loading{text-align:center;color:var(--ink-soft);padding:2rem 0;}
   details{border:1px solid var(--line);border-radius:10px;background:#fff;margin-bottom:.7rem;}
   details summary{padding:.75rem .9rem;cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
@@ -211,6 +211,28 @@ function genUniquePassword(existingSet){
 }
 function esc(s){ const d=document.createElement('div'); d.innerText = s==null?'':String(s); return d.innerHTML; }
 
+function nextOrder(cls){
+  let m = 0;
+  Object.values(cls.students||{}).forEach(s=>{ if(typeof s.order==='number' && s.order>m) m = s.order; });
+  return m+1;
+}
+function normalizeStudentOrder(){
+  let assigned = false;
+  Object.values((typeof DATA!=='undefined' && DATA && DATA.classes) || {}).forEach(cls=>{
+    const arr = Object.values(cls.students||{});
+    if(!arr.length) return;
+    let max = 0;
+    arr.forEach(s=>{ if(typeof s.order==='number' && s.order>max) max = s.order; });
+    arr.forEach(s=>{ if(typeof s.order!=='number'){ s.order = ++max; assigned = true; } });
+    const sorted = arr.slice().sort((a,b)=>a.order-b.order);
+    if(!sorted.every((st,i)=>st===arr[i])){
+      const o = {}; sorted.forEach(st=>{ o[st.id] = st; }); cls.students = o;
+    }
+  });
+  if(assigned){ try{ if(firebase.auth().currentUser) scheduleSave(); }catch(e){} }
+}
+let orderPanelOpen = false;
+
 function migrateData(){
   let changed = false;
   Object.values(DATA.classes||{}).forEach(cls=>{
@@ -312,6 +334,8 @@ document.addEventListener('click', async (ev)=>{
   render();
 });
 function render(){
+  normalizeStudentOrder();
+  document.body.style.paddingBottom = (view==='classPanel') ? '6rem' : '';
   const app = document.getElementById('app');
   if(view==='noTeacherLink') renderNoTeacherLink(app);
   else if(view==='setup') renderSetup(app);
@@ -551,7 +575,7 @@ function renderTeacherClasses(app){
   attachSecretTap(app.querySelector('header.top h1'), ()=>{ tutorUnlocked = !tutorUnlocked; renderTeacherClasses(app); }, 3);
   document.getElementById('do-backup').onclick=(ev)=>exportBackup(ev.currentTarget);
   const restoreInput = document.getElementById('restore-file');
-  document.getElementById('do-restore').onclick=()=>restoreInput.click();
+  document.getElementById('do-restore').onclick=()=>{ if(appBlocksFiles()) return; restoreInput.click(); };
   restoreInput.onchange=(ev)=>{ const f=ev.target.files[0]; ev.target.value=''; if(f) restoreBackup(f); };
   const schedDetails = document.getElementById('schedule-details');
   if(schedDetails) schedDetails.addEventListener('toggle', ()=>{ scheduleCardOpen = schedDetails.open; });
@@ -566,7 +590,7 @@ function renderTeacherClasses(app){
     if(!ok){ errEl.textContent='Kaydedilemedi.'; errEl.style.display='block'; return; }
     go('teacherClasses');
   };
-  app.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>go('classPanel',{classId:b.getAttribute('data-open'),tab:'students'}));
+  app.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>go('classPanel',{classId:b.getAttribute('data-open'),tab:'scales'}));
   app.querySelectorAll('[data-del]').forEach(b=>b.onclick=async ()=>{
     if(!confirm('Bu sınıfı ve tüm verilerini silmek istediğine emin misin?')) return;
     delete DATA.classes[b.getAttribute('data-del')];
@@ -586,23 +610,23 @@ function todayISO(){ return new Date().toISOString().slice(0,10); }
 function renderClassPanel(app){
   const cls = DATA.classes[ctx.classId];
   if(!cls){ go('teacherClasses'); return; }
-  const tab = ctx.tab || 'students';
+  const tab = ctx.tab || 'scales';
   app.innerHTML = header(cls.name) +
     '<button class="backline" id="back">← Sınıflar</button>'+
     '<label style="display:flex;align-items:center;gap:.4rem;margin-bottom:.8rem;font-size:.85rem;color:var(--ink-soft);"><input type="checkbox" id="home-toggle" style="width:auto;" '+(cls.isHomeroom?'checked':'')+'> Bu benim sınıf öğretmeni olduğum sınıfım</label>'+
     '<div class="tabbar">'+
-      '<button class="'+(tab==='students'?'active':'')+'" id="tab-s">Öğrenciler</button>'+
-      '<button class="'+(tab==='assignments'?'active':'')+'" id="tab-a">Ödevler</button>'+
-      '<button class="'+(tab==='scales'?'active':'')+'" id="tab-o">Ölçekler</button>'+
-      '<button class="'+(tab==='oral'?'active':'')+'" id="tab-g">Sözlü Notu</button>'+
-      (cls.isHomeroom ? '<button class="'+(tab==='books'?'active':'')+'" id="tab-b">Kitaplar</button>' : '')+
+      '<button class="'+(tab==='scales'?'active':'')+'" id="tab-o"><svg viewBox="0 0 24 24"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>Ölçekler</button>'+
+      '<button class="'+(tab==='students'?'active':'')+'" id="tab-s"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M17 14c2.4 0 4 1.8 4 4.5"/></svg>Öğrenciler</button>'+
+      '<button class="'+(tab==='assignments'?'active':'')+'" id="tab-a"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6"/></svg>Ödevler</button>'+
+      '<button class="'+(tab==='oral'?'active':'')+'" id="tab-g"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>Sözlü</button>'+
+      (cls.isHomeroom ? '<button class="'+(tab==='books'?'active':'')+'" id="tab-b"><svg viewBox="0 0 24 24"><path d="M4 5c3-1 5-1 8 1 3-2 5-2 8-1v14c-3-1-5-1-8 1-3-2-5-2-8-1zM12 6v14"/></svg>Kitaplar</button>' : '')+
     '</div>'+
     '<div id="tab-body"></div>';
   document.getElementById('back').onclick=()=>go('teacherClasses');
   document.getElementById('home-toggle').onchange=async (e)=>{
     cls.isHomeroom = e.target.checked;
     await saveDataNow();
-    go('classPanel',{classId:cls.id,tab: e.target.checked ? tab : (tab==='books'?'students':tab)});
+    go('classPanel',{classId:cls.id,tab: e.target.checked ? tab : (tab==='books'?'scales':tab)});
   };
   document.getElementById('tab-s').onclick=()=>go('classPanel',{classId:cls.id,tab:'students'});
   document.getElementById('tab-a').onclick=()=>go('classPanel',{classId:cls.id,tab:'assignments'});
@@ -946,6 +970,12 @@ function renderStudentsTab(body, cls){
     '<input type="file" id="pdf-file" accept=".pdf">'+
     '<p class="err" id="pdf-err" style="display:none;"></p>'+
     '<div id="pdf-result"></div></div></details>'+
+    '<details id="order-details"'+(orderPanelOpen?' open':'')+'><summary><span>Sıralamayı düzenle</span><span class="muted">liste yapıştır · ▲▼</span></summary><div class="inner">'+
+    '<p class="muted" style="margin-top:0;">Okul listendeki sırayla isimleri yapıştır, öğrencileri o sıraya dizeyim:</p>'+
+    '<textarea id="order-paste" placeholder="Bir satıra bir isim (e-okul listesinden kopyala)" style="min-height:5rem;"></textarea>'+
+    '<div style="margin:.5rem 0 .8rem;"><button id="order-apply">Listeye göre sırala</button></div>'+
+    students.map((st,i)=>'<div class="list-row"><span>'+(i+1)+'. '+esc(st.name)+'</span><span style="display:flex;gap:.3rem;"><button class="ghost small" data-up="'+st.id+'">▲</button><button class="ghost small" data-down="'+st.id+'">▼</button></span></div>').join('')+
+    '</div></details>'+
     '<h2 class="section">Öğrenciler ('+students.length+')</h2>'+
     (students.length ? '<div style="margin-bottom:.6rem;"><button class="ghost small" id="export-pdf">Şifre listesini yazdır / PDF indir</button></div>' : '') +
     (students.length ? students.map(s=>studentRowHtml(s, cls)).join('') : '<div class="empty">Henüz öğrenci yok.</div>');
@@ -955,7 +985,7 @@ function renderStudentsTab(body, cls){
     if(!v) return;
     const id=uid();
     const pw=genUniquePassword(allPasswords());
-    cls.students[id]={id,name:v,password:pw,note:''};
+    cls.students[id]={id,name:v,password:pw,note:'',order:nextOrder(cls)};
     await saveDataNow();
     await syncStudentAuth(id, pw);
     go('classPanel',{classId:cls.id,tab:'students'});
@@ -964,7 +994,7 @@ function renderStudentsTab(body, cls){
     const lines=document.getElementById('bulk-names').value.split('\n').map(l=>l.trim()).filter(Boolean);
     if(!lines.length) return;
     const created=[]; const existingPw=allPasswords();
-    lines.forEach(name=>{ const id=uid(); const pw=genUniquePassword(existingPw); cls.students[id]={id,name,password:pw,note:''}; created.push({id,name,pw}); });
+    lines.forEach(name=>{ const id=uid(); const pw=genUniquePassword(existingPw); cls.students[id]={id,name,password:pw,note:'',order:nextOrder(cls)}; created.push({id,name,pw}); });
     await saveDataNow();
     await Promise.all(created.map(c=>syncStudentAuth(c.id, c.pw)));
     document.getElementById('bulk-result').innerHTML='<p class="muted" style="margin-top:.6rem;">Eklendi, şifreleri not al:</p><div class="card">'+
@@ -996,7 +1026,7 @@ function renderStudentsTab(body, cls){
         }
         if(!names.length){ errEl.textContent='Dosyada isim bulunamadı.'; errEl.style.display='block'; return; }
         const created=[]; const existingPw2=allPasswords();
-        names.forEach(name=>{ const id=uid(); const pw=genUniquePassword(existingPw2); cls.students[id]={id,name,password:pw,note:''}; created.push({id,name,pw}); });
+        names.forEach(name=>{ const id=uid(); const pw=genUniquePassword(existingPw2); cls.students[id]={id,name,password:pw,note:'',order:nextOrder(cls)}; created.push({id,name,pw}); });
         await saveDataNow();
         await Promise.all(created.map(c=>syncStudentAuth(c.id, c.pw)));
         document.getElementById('xlsx-result').innerHTML='<p class="muted" style="margin-top:.6rem;">'+created.length+' öğrenci eklendi. Şifreleri not al:</p><div class="card">'+
@@ -1017,7 +1047,7 @@ function renderStudentsTab(body, cls){
     extractNamesFromPdf(file).then(async (names)=>{
       if(!names.length){ errEl.textContent='PDF\'te isim bulunamadı. Dosyanın metin tabanlı (taranmış görüntü değil) olduğundan emin ol.'; errEl.style.display='block'; return; }
       const created=[]; const existingPw3=allPasswords();
-      names.forEach(name=>{ const id=uid(); const pw=genUniquePassword(existingPw3); cls.students[id]={id,name,password:pw,note:''}; created.push({id,name,pw}); });
+      names.forEach(name=>{ const id=uid(); const pw=genUniquePassword(existingPw3); cls.students[id]={id,name,password:pw,note:'',order:nextOrder(cls)}; created.push({id,name,pw}); });
       await saveDataNow();
       await Promise.all(created.map(c=>syncStudentAuth(c.id, c.pw)));
       document.getElementById('pdf-result').innerHTML='<p class="muted" style="margin-top:.6rem;">'+created.length+' öğrenci eklendi. Şifreleri not al:</p><div class="card">'+
@@ -1027,6 +1057,42 @@ function renderStudentsTab(body, cls){
       errEl.textContent='PDF okunamadı. Dosyanın bozuk olmadığından emin ol.';
       errEl.style.display='block';
     });
+  };
+  const orderDetails = document.getElementById('order-details');
+  if(orderDetails) orderDetails.addEventListener('toggle', ()=>{ orderPanelOpen = orderDetails.open; });
+  body.querySelectorAll('[data-up],[data-down]').forEach(b=>b.addEventListener('click', async ()=>{
+    const id = b.getAttribute('data-up') || b.getAttribute('data-down');
+    const dir = b.hasAttribute('data-up') ? -1 : 1;
+    const arr = Object.values(cls.students);
+    arr.forEach((st,k)=>{ st.order = k+1; });
+    const i = arr.findIndex(st=>st.id===id), j = i+dir;
+    if(i<0 || j<0 || j>=arr.length) return;
+    const t = arr[i].order; arr[i].order = arr[j].order; arr[j].order = t;
+    orderPanelOpen = true;
+    await saveDataNow();
+    go('classPanel',{classId:cls.id,tab:'students'});
+  }));
+  const orderApply = document.getElementById('order-apply');
+  if(orderApply) orderApply.onclick = async ()=>{
+    const key = t=>String(t||'').toLocaleLowerCase('tr').replace(/[^a-zçğıiöşü ]/g,' ').split(/\s+/).filter(Boolean).sort().join(' ');
+    const lines = document.getElementById('order-paste').value.split('\n').map(l=>l.trim()).filter(Boolean);
+    if(!lines.length) return;
+    const pool = Object.values(cls.students);
+    const used = new Set(), ordered = [], missing = [];
+    lines.forEach(line=>{
+      const k = key(line);
+      if(!k) return;
+      const hit = pool.find(st=>!used.has(st.id) && key(st.name)===k);
+      if(hit){ used.add(hit.id); ordered.push(hit); } else missing.push(line);
+    });
+    const rest = pool.filter(st=>!used.has(st.id));
+    ordered.concat(rest).forEach((st,idx)=>{ st.order = idx+1; });
+    orderPanelOpen = true;
+    await saveDataNow();
+    alert(ordered.length+' öğrenci sıralandı.'+
+      (missing.length ? '\n\nListede olup sınıfta bulunamayan '+missing.length+' isim:\n'+missing.slice(0,10).join('\n') : '')+
+      (rest.length ? '\n\nListede olmayan '+rest.length+' öğrenci sona alındı.' : ''));
+    go('classPanel',{classId:cls.id,tab:'students'});
   };
   students.forEach(s=>wireStudentRow(cls, s.id));
   const exportBtn = document.getElementById('export-pdf');
@@ -2087,6 +2153,7 @@ function renderTutorStudentView(app){
 
 /* ---------- YEDEK ---------- */
 async function restoreBackup(file){
+  if(appBlocksFiles()) return;
   let obj;
   try{
     obj = JSON.parse(await file.text());
@@ -2133,7 +2200,15 @@ async function restoreBackup(file){
     alert('Geri yükleme sırasında hata oldu: '+((e&&e.message)||e)+'\nİndirilen otomatik yedeği kullanarak tekrar deneyebilirsin.');
   }
 }
+function appBlocksFiles(){
+  if(typeof isAndroidWebView==='function' && isAndroid() && isAndroidWebView()){
+    alert('Uygulamanın içinde dosya indirilemiyor ve seçilemiyor. Yedek almak ya da geri yüklemek için siteyi Chrome tarayıcısında aç: '+location.host);
+    return true;
+  }
+  return false;
+}
 async function exportBackup(btn){
+  if(appBlocksFiles()) return false;
   const label = btn.textContent;
   btn.disabled = true; btn.textContent = 'Hazırlanıyor…';
   try{
