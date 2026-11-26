@@ -1007,6 +1007,7 @@ function ensureStudentAuthSynced(cls){
 function renderOralGradeTab(body, cls){
   const students = Object.values(cls.students);
   const pct = cls.oralPercentage!=null ? cls.oralPercentage : '';
+  let curPct = pct;
   body.innerHTML =
     '<div class="card"><label style="margin-top:0;">Sözlüye en fazla kaç puan etkisi olsun?</label>'+
     '<p class="muted" style="margin-top:0;">Örn: 15 girersen, ölçeklerde tam not (%100) alan öğrenciye en fazla 15 puan, yarısını alana ~7-8 puan verilir.</p>'+
@@ -1023,20 +1024,52 @@ function renderOralGradeTab(body, cls){
   if(pct!=='') renderOralResult(pct);
 
   function renderOralResult(percentage){
+    curPct = percentage;
     const resultEl = document.getElementById('oral-result');
     if(!students.length){ resultEl.innerHTML = '<div class="empty">Önce öğrenci ekle.</div>'; return; }
+    cls.oralBase = cls.oralBase || {};
     const rows = students.map(s=>{
       const avg = overallStudentAverage(cls, s.id);
       const oralGrade = avg!=null ? (percentage * avg / 100) : null;
-      return {name:s.name, avg, oralGrade};
+      const base = cls.oralBase[s.id];
+      const hasBase = base!=null && base!=='' && !isNaN(base);
+      const target = (hasBase && oralGrade!=null) ? Math.min(100, Math.round(+base + oralGrade)) : null;
+      const trio = target!=null ? bestParticipationTrio(target) : null;
+      return {id:s.id, name:s.name, avg, oralGrade, base: hasBase?base:'', target, trio};
     });
     resultEl.innerHTML =
       '<h2 class="section">Sınıfın sözlü notları</h2>'+
-      '<div class="gridwrap"><table class="grid"><thead><tr><th style="text-align:left;">Öğrenci</th><th>Ölçek ort.</th><th>Sözlü notu</th></tr></thead><tbody>'+
-      rows.map(r=>'<tr><td style="text-align:left;">'+esc(r.name)+'</td><td style="text-align:center;">'+(r.avg!=null?'%'+Math.round(r.avg):'—')+'</td><td style="text-align:center;font-weight:600;">'+(r.oralGrade!=null?r.oralGrade.toFixed(1):'—')+'</td></tr>').join('')+
+      '<div class="gridwrap"><table class="grid"><thead><tr><th style="text-align:left;">Öğrenci</th><th>Ölçek ort.</th><th>Sözlü puanı</th><th>Not ort. (katılımsız)</th><th>Yeni ort.</th><th>3 katılım notu</th></tr></thead><tbody>'+
+      rows.map(r=>'<tr><td style="text-align:left;">'+esc(r.name)+'</td>'+
+        '<td style="text-align:center;">'+(r.avg!=null?'%'+Math.round(r.avg):'—')+'</td>'+
+        '<td style="text-align:center;font-weight:600;">'+(r.oralGrade!=null?r.oralGrade.toFixed(1):'—')+'</td>'+
+        '<td style="text-align:center;"><input class="score-input" type="text" inputmode="decimal" data-obase="'+r.id+'" value="'+esc(r.base)+'" style="width:3.6rem;"></td>'+
+        '<td style="text-align:center;font-weight:600;">'+(r.target!=null?r.target:'—')+'</td>'+
+        '<td style="text-align:center;font-weight:700;white-space:nowrap;">'+(r.trio?r.trio.join(' · ')+' <span class="muted" style="font-weight:400;">(ort. '+(r.trio.reduce((a,b)=>a+b,0)/3).toFixed(1).replace('.',',')+')</span>':'—')+'</td></tr>').join('')+
       '</tbody></table></div>'+
-      '<p class="muted" style="margin-top:.6rem;">"—" görünen öğrencinin henüz hiçbir ölçekte kaydı yok.</p>';
+      '<p class="muted" style="margin-top:.6rem;">Not ortalamasını (ders içi katılım hariç) yaz; yeni ortalama = ortalama + sözlü puanı. 3 katılım notu 5\'in katı olarak, ortalaması yeni ortalamaya en yakın olacak şekilde seçilir. "—" görünen öğrencinin ölçek kaydı ya da ortalaması yok.</p>';
+    resultEl.querySelectorAll('[data-obase]').forEach(inp=>{
+      inp.onchange=async ()=>{
+        const v = inp.value.replace(',','.').trim();
+        if(v===''){ delete cls.oralBase[inp.dataset.obase]; }
+        else if(isNaN(parseFloat(v))){ alert('Geçerli bir sayı gir.'); return; }
+        else cls.oralBase[inp.dataset.obase] = parseFloat(v);
+        await saveDataNow();
+        renderOralResult(curPct);
+      };
+    });
   }
+}
+
+// Hedef ortalamaya en yakın 3 katılım notu (5'in katları, küçükten büyüğe)
+function bestParticipationTrio(target){
+  let best=null, bestD=1e9, bestSpread=1e9;
+  for(let a=0;a<=100;a+=5) for(let b=a;b<=100;b+=5) for(let c=b;c<=100;c+=5){
+    const d = Math.abs((a+b+c)/3 - target);
+    const sp = c-a;
+    if(d < bestD-1e-9 || (Math.abs(d-bestD)<1e-9 && sp<bestSpread)){ best=[a,b,c]; bestD=d; bestSpread=sp; }
+  }
+  return best;
 }
 
 function renderStudentsTab(body, cls){
